@@ -1,0 +1,248 @@
+/* About section */
+.about {
+  padding: 80px 20px;
+  background: linear-gradient(180deg, rgba(248,250,252,0.6), rgba(248,250,252,0.85));
+  color: var(--dark-color);
+}
+
+.about-inner {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 40px;
+  align-items: start;
+}
+
+/* LEFT column */
+.about-left {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.about-left.enter {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-left h2 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+  color: var(--dark-color);
+}
+
+.about-leading {
+  color: var(--primary-color);
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.about-text p {
+  color: var(--grey-color);
+  margin-bottom: 12px;
+}
+
+.experience-list {
+  margin: 12px 0 18px;
+  display: grid;
+  gap: 10px;
+  color: var(--dark-color);
+}
+
+.experience-list li {
+  font-size: 0.95rem;
+  color: var(--dark-color);
+}
+
+/* CTA */
+.about-cta {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+/* RIGHT column */
+.about-right {
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(248,250,252,0.9));
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: var(--box-shadow);
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease 0.12s, transform 0.6s ease 0.12s;
+}
+
+.about-right.enter {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* stats */
+.stats {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.stat {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  background: rgba(14,165,233,0.06);
+}
+
+.stat-number {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--primary-color);
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--grey-color);
+  margin-top: 6px;
+}
+
+/* skills */
+.skills h4 {
+  margin: 4px 0 10px;
+  color: var(--primary-color);
+}
+
+.skill-list {
+  display: grid;
+  gap: 12px;
+}
+
+/* skill row */
+.skill-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.skill-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skill-name {
+  font-weight: 600;
+  color: var(--dark-color);
+}
+
+.skill-pct {
+  font-weight: 700;
+  color: var(--primary-color);
+  font-size: 0.9rem;
+}
+
+/* bar */
+.skill-bar {
+  height: 10px;
+  background: rgba(2,6,23,0.06);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.skill-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  border-radius: 999px;
+  transition: width 900ms cubic-bezier(.2,.9,.22,1);
+}
+
+/* sources */
+.sources {
+  margin-top: 18px;
+  border-top: 1px dashed rgba(2,6,23,0.04);
+  padding-top: 12px;
+}
+
+.sources h5 {
+  font-size: 0.95rem;
+  color: var(--primary-color);
+  margin-bottom: 6px;
+}
+
+.sources .small {
+  font-size: 0.88rem;
+  color: var(--grey-color);
+  line-height: 1.4;
+}
+
+/* responsive */
+@media (max-width: 980px) {
+  .about-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .about-right {
+    margin-top: 18px;
+  }
+
+  .stats {
+    gap: 8px;
+  }
+}
+/* Thinktyde highlight */
+.project-highlight {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 14px;
+  margin: 18px 0;
+  padding: 14px;
+  border-radius: 12px;
+  background: rgba(14,165,233,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-highlight:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--box-shadow);
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.project-info h4 {
+  margin-bottom: 6px;
+  color: var(--primary-color);
+  font-size: 1rem;
+}
+
+.project-info p {
+  font-size: 0.9rem;
+  color: var(--grey-color);
+  line-height: 1.5;
+}
+
+/* responsive */
+@media (max-width: 640px) {
+  .project-highlight {
+    grid-template-columns: 1fr;
+  }
+}
+.source-links {
+  margin-top: 12px;
+  display: flex;
+  gap: 16px;
+}
+.source-links a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--primary-color);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
