@@ -219,7 +219,6 @@ h4 {
     cursor: pointer;
     transition: var(--transition);
     text-align: center;
-    border-radius: 30px;
 }
 
 .btn:hover {
@@ -235,7 +234,6 @@ h4 {
     transition: var(--transition);
     padding: 10px 20px;
     text-align: center;
-    border-radius: 30px;
 }
 
 .btn-secondary:hover {
@@ -249,7 +247,6 @@ h4 {
     padding: 10px 20px;
     transition: var(--transition);
     text-align: center;
-    border-radius: 30px;
 }
 
 .btn-primary:hover {

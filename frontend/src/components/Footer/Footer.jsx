@@ -1,5 +1,5 @@
 import "./Footer.css";
-import { FaWhatsapp, FaFacebookF, FaLinkedinIn } from "react-icons/fa";
+import { FaWhatsapp, FaLinkedinIn } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -22,15 +22,6 @@ const Footer = () => {
             aria-label="WhatsApp"
           >
             <FaWhatsapp />
-          </a>
-
-          <a
-            href="https://facebook.com/"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Facebook"
-          >
-            <FaFacebookF />
           </a>
 
           <a

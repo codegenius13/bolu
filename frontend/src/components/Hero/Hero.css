@@ -85,11 +85,11 @@
 }
 
 .hero-name {
-    color: var(--primary-color);
+    color: var(--secondary-color);
 }
 
 .typing {
-    color: var(--primary-color);
+    color: var(--secondary-color);
     font-weight: 700;
 }
 
