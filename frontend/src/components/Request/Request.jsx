@@ -57,7 +57,7 @@ export default function Request() {
         payload.append("attachments", formData.attachments[i]);
       }
 
-      const res = await fetch("http://localhost:5000/api/general/requests", {
+      const res = await fetch("https://bolu-backend.onrender.com/api/general/requests", {
         method: "POST",
         body: payload,
       });
@@ -110,7 +110,7 @@ export default function Request() {
     try {
       setLoading(true);
       const res = await fetch(
-        `http://localhost:5000/api/general/requests?page=${pageNumber}&limit=${PER_PAGE}`
+        `https://bolu-backend.onrender.com/api/general/requests?page=${pageNumber}&limit=${PER_PAGE}`
       );
       const data = await res.json();
 

@@ -3,7 +3,7 @@ import "./Reviews.css";
 import { useNotification } from "../../context/NotificationContext/NotificationContext";
 
 const REVIEWS_PER_PAGE = 2;
-const API_BASE = "http://localhost:5000/api/general";
+const API_BASE = "https://bolu-backend.onrender.com/api/general";
 
 export default function Reviews() {
   const { showNotification } = useNotification();
