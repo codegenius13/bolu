@@ -1,0 +1,169 @@
+/* ===============================
+   OVERLAY
+================================ */
+.notify-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 4000;
+  animation: fadeInOverlay 0.3s ease forwards; /* changed */
+}
+
+/* ===============================
+   POPUP CARD
+================================ */
+.notify-popup {
+  width: 90%;
+  max-width: 420px;
+  background: var(--light-color);
+  border-radius: 16px;
+  padding: 30px 24px;
+  text-align: center;
+  animation: fadeInPopup 0.35s ease forwards; /* changed */
+  position: relative;
+}
+
+.notify-popup.fade-out {
+  animation: scaleOut 0.35s ease forwards; /* keep fade out as is */
+}
+
+/* ===============================
+   ICON
+================================ */
+.notify-icon {
+  font-size: 64px;
+  margin-bottom: 14px;
+  animation: bounce 0.8s ease;
+}
+
+.notify-popup.success .notify-icon {
+  color: var(--success-color);
+}
+.notify-popup.error .notify-icon {
+  color: var(--error-color);
+}
+.notify-popup.warning .notify-icon {
+  color: var(--warning-color);
+}
+
+/* ===============================
+   TEXT
+================================ */
+.notify-title {
+  margin: 0 0 8px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.notify-message {
+  font-size: 15px;
+  line-height: 1.5;
+  margin-bottom: 22px;
+  color: var(--dark-color);
+}
+
+/* ===============================
+   ACTION BUTTONS
+================================ */
+.notify-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+}
+
+.notify-btn {
+  min-width: 120px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.notify-btn.primary {
+  background: var(--accent-color);
+  color: #fff;
+}
+
+.notify-popup.success .notify-btn.primary {
+  background: var(--success-color);
+}
+.notify-popup.error .notify-btn.primary {
+  background: var(--error-color);
+}
+.notify-popup.warning .notify-btn.primary {
+  background: var(--warning-color);
+}
+
+.notify-btn.secondary {
+  background: transparent;
+  border: 1px solid #ccc;
+}
+
+.notify-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* ===============================
+   ANIMATIONS
+================================ */
+@keyframes fadeInOverlay {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInPopup {
+  from {
+    opacity: 0;
+    transform: scale(0.95); /* subtle scale */
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleOut {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(0.6);
+  }
+  60% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* ===============================
+   MOBILE
+================================ */
+@media (max-width: 480px) {
+  .notify-popup {
+    padding: 24px 18px;
+  }
+
+  .notify-icon {
+    font-size: 54px;
+  }
+}

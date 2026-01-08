@@ -1,5 +1,5 @@
 {
-  "name": "tinktyde",
+  "name": "bolu",
   "version": "1.0.0",
   "type": "module",
   "main": "index.js",
@@ -48,6 +48,7 @@
     "plagiarism-checker": "^5.0.0",
     "quill": "^2.0.3",
     "razorpay": "^2.9.6",
+    "resend": "^6.6.0",
     "socket.io": "^4.8.1",
     "stripe": "^18.5.0",
     "validator": "^13.15.15",

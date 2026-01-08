@@ -1,21 +1,86 @@
 import React, { useState } from "react";
 import "./Contact.css";
+import { useNotification } from "../../context/NotificationContext/NotificationContext";
 
 /**
  * Backend ready
- * Later:
  * POST /api/contact
  */
 
 export default function Contact() {
-  const [sent, setSent] = useState(false);
+  const { showNotification } = useNotification();
 
-  const handleSubmit = (e) => {
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  /* ==========================
+     HANDLE INPUT CHANGES
+  ========================== */
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  /* ==========================
+     SUBMIT CONTACT FORM
+  ========================== */
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSent(true);
+    setLoading(true);
+    setError("");
 
-    // later: send to backend
-    setTimeout(() => setSent(false), 4000);
+    try {
+      const res = await fetch("http://localhost:5000/api/general/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        const retry = await showNotification({
+          type: "error",
+          title: "Message Failed",
+          message: data.msg || "Failed to send message. Retry?",
+        });
+
+        if (retry) handleSubmit(e);
+        return;
+      }
+
+      await showNotification({
+        type: "success",
+        title: "Message Sent",
+        message: data.msg || "Your message has been sent successfully!",
+      });
+
+      // Reset form
+      setFormData({
+        fullName: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } catch (err) {
+      const retry = await showNotification({
+        type: "error",
+        title: "Network Error",
+        message: err.message || "Something went wrong. Retry?",
+      });
+
+      if (retry) handleSubmit(e);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -47,25 +112,55 @@ export default function Contact() {
         <form className="contact-form" onSubmit={handleSubmit}>
           <h3>Send a Message</h3>
 
-          <input type="text" placeholder="Your name" required />
-          <input type="email" placeholder="Your email" required />
-          <input type="text" placeholder="Subject" required />
+          {error && <p className="error-text">{error}</p>}
 
-          <textarea
-            rows="4"
-            placeholder="Describe your project or request"
+          <input
+            type="text"
+            name="fullName"
+            placeholder="Your name"
+            value={formData.fullName}
+            onChange={handleChange}
             required
           />
 
-          <button className="btn btn-primary" type="submit">
-            Send Message
+          <input
+            type="email"
+            name="email"
+            placeholder="Your email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+
+          <input
+            type="text"
+            name="subject"
+            placeholder="Subject"
+            value={formData.subject}
+            onChange={handleChange}
+            required
+          />
+
+          <textarea
+            rows="4"
+            name="message"
+            placeholder="Describe your project or request"
+            value={formData.message}
+            onChange={handleChange}
+            required
+          />
+
+          <button
+            className="btn btn-primary"
+            type="submit"
+            disabled={loading || formData.message.length < 5}
+          >
+            {loading ? "Sending..." : "Send Message"}
           </button>
 
-          {sent && (
-            <p className="contact-success">
-              Message sent successfully ✔
-            </p>
-          )}
+          <small className="muted">
+            Please provide clear details so I can respond effectively.
+          </small>
         </form>
       </div>
     </section>
