@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./About.css";
-import { FaEnvelope, FaLinkedin  } from "react-icons/fa";
+import { FaEnvelope, FaLink, FaLinkedin  } from "react-icons/fa";
 import { FaSquareUpwork } from "react-icons/fa6";
 
 export default function About() {
@@ -11,10 +11,9 @@ export default function About() {
   const skills = [
     { name: "JavaScript / React", pct: 92 },
     { name: "Node.js / Express", pct: 88 },
-    { name: "MongoDB", pct: 82 },
     { name: "Data Analysis", pct: 78 },
     { name: "Laboratory Methods", pct: 75 },
-    { name: "Scientific Writing", pct: 80 },
+    { name: "Scientific Writing", pct: 85 },
   ];
 
   // IntersectionObserver to trigger animations when section enters view
@@ -67,47 +66,36 @@ export default function About() {
           <h2 id="about-title">About Me</h2>
 
           <p className="about-leading">
-            I'm Bolu Ikuerowo — a researcher and full-stack web developer. I
-            blend laboratory experience with practical software engineering to
-            build research-grade tools and production web apps. I take pride in
-            clear reproducible work, clean code, and readable reports.
+            I'm Bolu Ikuerowo — I work on research projects and develop web applications, applying both to my everyday career growth. I focus on clear, reproducible work, clean code, and practical results.
           </p>
 
           <div className="about-text">
             <p>
-              Over the years I have worked on projects spanning biochemical lab
-              analysis, data processing pipelines, and MERN web applications.
-              I take remote and contract work via LinkedIn and Upwork and also
-              work directly with small teams and institutions.
+              Over the years I have worked on various research projects and MERN web applications.
+              I take remote and contract work via LinkedIn and also
+              work directly with small businesses and institutions.
             </p>
 
             <div className="project-highlight">
               <div className="project-image">
                 <img
-                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71"
-                  alt="Thinktyde AI Research Platform"
+                  src=""
+                  alt="Reverra AI Research Platform"
                 />
               </div>
 
               <div className="project-info">
-                <h4>Tinktyde — AI Research Analyzer</h4>
+                <h4>Reverra — AI Research Analyzer</h4>
                 <p>
-                  I am currently developing <strong>Tinktyde</strong>, an AI-powered
+                  I am currently developing <strong>Reverra</strong>, an AI-powered
                   research assistant designed to analyze academic papers, act as a
                   researcher notebook, and support data analysis workflows.
                   It helps researchers extract insights, organize notes, and
                   improve research productivity.
                 </p>
+                <a href="" target="_blank">View Site <FaLink /></a>
               </div>
             </div>
-
-
-            <ul className="experience-list">
-              <li><strong>Lab experience:</strong> Chemical pathology, Microbiology, Sample prep, Assays, QC.</li>
-              <li><strong>Dev experience:</strong> full-stack apps, APIs, integrations (OpenAI, Cloudinary, Stripe).</li>
-              <li><strong>Delivery:</strong> Documentation, Testable code, Deploy-ready repos.</li>
-            </ul>
-
             <div className="about-cta">
               <button className="btn" onClick={() => document.getElementById("work")?.scrollIntoView({ behavior: "smooth" })}>
                 View Works
@@ -162,18 +150,14 @@ export default function About() {
           <div className="sources">
             <h5>Where I get work</h5>
             <p className="small">
-              Most requests come from LinkedIn and Upwork, plus direct referrals
+              Most requests come from LinkedIn, plus direct referrals
               and institutional collaborations. I keep profiles up to date and
               favor clear proposals and deliverables.
             </p>
             <div className="source-links">
-              <a href="" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/in/boluwatife-ikuerowo-80490226b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer">
                 <FaLinkedin size={20} style={{ verticalAlign: 'middle', marginRight: '6px' }} />
                 LinkedIn
-              </a>
-              <a href="" target="_blank" rel="noopener noreferrer">
-                <FaSquareUpwork size={20} style={{ verticalAlign: 'middle', marginRight: '6px' }} />
-                Upwork
               </a>
               <a href="mailto:ikuerowob@gmail.com" target="_blank" rel="noopener noreferrer">
                 <FaEnvelope size={20} style={{ verticalAlign: 'middle', marginRight: '6px' }} />

@@ -1,23 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./Portfolio.css";
+import port01 from "../../assets/img/blessed.png";
+import port02 from "../../assets/img/christi.png";
+import port03 from "../../assets/img/busyhands.png";
+import port04 from "../../assets/img/esther.png";
+import port05 from "../../assets/img/grace.png"
 
-/**
- * Portfolio.jsx
- * - Fetches /api/works (expects array of works). If fetch fails, uses fallback dummy data.
- * - Each work object shape:
- *   {
- *     id: string|number,
- *     title: string,
- *     type: "web" | "research",
- *     year: 2024,
- *     short: string,
- *     long: string,
- *     image: string,   // url
- *     tags: ["MERN","React"],
- *     liveUrl: "https://...",
- *     fileUrl: "https://..." // for papers
- *   }
- */
 
 const FALLBACK_DATA = [
   // 3 Web projects
@@ -26,74 +14,61 @@ const FALLBACK_DATA = [
     title: "The Blessed Fields LLC",
     type: "web",
     year: 2024,
-    short: "Responsive company site for an agricultural business — marketing pages, contact & CMS-ready.",
+    short: "Responsive small business website for an agricultural business —  contact forms.",
     long:
-      "Case study: Built a responsive, SEO-minded marketing site with CMS integration and contact workflows. Implemented image optimization, accessibility improvements, and light-weight animations.",
-    image: "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=1400&q=60",
-    tags: ["MERN", "SEO", "Responsive"],
-    liveUrl: "https://theblessedfields.example",
+      "Case study: Built a responsive, SEO-minded and contact workflow website. Implemented image optimization, accessibility improvements, and light-weight animations.",
+    image: port01,
+    tags: ["SEO", "Responsive"],
+    liveUrl: "https://www.theblessedfields.com",
   },
   {
     id: "web-2",
     title: "Christi Nursing Network",
     type: "web",
-    year: 2023,
+    year: 2025,
     short: "Healthcare landing site with services and appointment requests.",
     long:
       "Case study: Medical landing site with service descriptions, appointment form (server-ready) and simple accessibility-first layout. Implemented form validation and progressive enhancement.",
-    image: "https://images.unsplash.com/photo-1582719478250-ec6f3ef6b33e?w=1400&q=60",
+    image: port02,
     tags: ["MERN", "Forms", "Accessibility"],
-    liveUrl: "https://christinursing.example",
+    liveUrl: "https://cnnnurse.com",
   },
   {
     id: "web-3",
     title: "BusyHands Global LLC",
     type: "web",
-    year: 2024,
+    year: 2026,
     short: "Freight & logistics brokerage web UI, dashboards and admin controls.",
     long:
       "Case study: Freight brokerage UI with driver/carrier details, tracking, and secure load posting. Built re-usable components and a mobile-first design system.",
-    image: "https://images.unsplash.com/photo-1504215680853-026ed2a45def?w=1400&q=60",
+    image: port03,
     tags: ["React", "Realtime", "Maps"],
-    liveUrl: "https://busyhands.example",
+    liveUrl: "https://busyhandsglobal.com",
   },
 
   // 3 Research papers (dummy content)
   {
     id: "res-1",
-    title: "PhD Project Paper (Draft)",
+    title: "Optimizing The Agricultural Value Chain Through Smart Logistics, Urban Farming, And Inclusive Agricultural Onboarding: A Multi-Economic Perspective",
     type: "research",
-    year: 2022,
-    short: "PhD-level experimental report focusing on biochemical assays and data analysis (draft).",
+    year: 2023,
+    short: "PhD Project Paper on agricultural value chains and logistics.",
     long:
-      "This is a placeholder summary for the PhD project paper. The final paper contains methodology, dataset analysis, and complete results. (Replace with real content later.)",
-    image: "https://images.unsplash.com/photo-1581091870621-3d2ee6a0a0a0?w=1400&q=60",
-    tags: ["Biochemistry", "Assays", "Data"],
-    fileUrl: "/papers/phd-project.pdf",
+      "Post-harvest losses account for 30 - 40% of food waste globally, with some developing economies bearing the brunt due to fragile infrastructure, inefficient logistics, and poor planning in agriculture. This research offers a comprehensive, systems-level approach to reimagining agricultural productivity through optimized farm production planning, logistics, urban farming, and educational reform to revolutionize youth participation. Employing mixed methods, modeling, field studies, expert interviews, and secondary data generated from software, this study juxtaposes case studies from Nigeria and the United States to identify scalable solutions. This research proposes an integrated logistics optimization model featuring multi-nodal routing, shared transport, and tracking to minimize backhauling and reduce logistics costs by an estimated 20%. A sustainable homesteading and community gardening blueprint designed to convert underutilized urban spaces into vibrant food production zones is suggested, one that utilizes proactive production planning simplified to help users attain maximum yield with seasonality and market needs. Information gathered through interviews, comparative studies and research culminated into the development of a suggested online and paper-based curriculum update to agricultural educational planning for middle to high schoolers, embedded in practical agri-preneurship and modern farming techniques into school systems. A phased 12-month training program and farmer-to-farmer mentorship network are introduced to support new agricultural entrants. Tech-driven interventions include a digital farmer marketplace app, and smart logistics booking for produce delivery were designed with future plans for this research. In addition, an infrastructure proposal tailored for a 3rd world country like Nigeria was strategically developed with sub-processing hubs designed in a network from the multi-nodal route model to optimize to and fro transportation of logistics partners, that also incorporate cold storage powered by a renewable power system, backed by a 10-year $100M phased investment plan to increase manufacturing capabilities in this region. An expected outcome is projected to include a 35–50% reduction in post-harvest losses, a 30–40% increase in farmer incomes, and the creation of over 250,000 direct jobs in Nigeria alone asides the possibilities of road network expansion and adjunct business opportunities as a result of this initiative. This model provides a realistic roadmap for climate-resilient, youth-inclusive and technology driven agriculture in stages that could potentially trigger economic sustainability and empowerment that aligns food security with a manufacturing and logistic transformation.",
+    image: port04,
+    tags: ["Agriculture", "Logistics", "Urban Farming", "Education"],
+    fileUrl: "",
   },
   {
     id: "res-2",
-    title: "Automated Farming Advancement (Dorcas Training)",
+    title: "Nutrition",
     type: "research",
-    year: 2023,
-    short: "Applied work on automated farming systems and adoption studies.",
-    long:
-      "Summary placeholder for collaborative research with Dorcas Training Services on automated farming systems and implementation strategies. (Replace with content later.)",
-    image: "https://images.unsplash.com/photo-1508163227098-7b7b3b9f0c8a?w=1400&q=60",
-    tags: ["Agriculture", "Automation", "Field Study"],
-    fileUrl: "/papers/dorcas-farming.pdf",
-  },
-  {
-    id: "res-3",
-    title: "Review Paper (Literature Review)",
-    type: "research",
-    year: 2021,
-    short: "A review of current trends in X (placeholder).",
-    long:
-      "Review placeholder — summarizes current works, gaps, and suggested directions. (Replace with final review text later.)",
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1400&q=60",
-    tags: ["Review", "Meta-analysis"],
-    fileUrl: "/papers/review-paper.pdf",
+    year: 2024,
+    short: "Study on nutritional content of various food crops. And the Negative Advancent of GMO foods",
+    long: "To show that nutrition is paramount to healthy living and well-being the Merck Manual started the first few chapters of the book with nutrition. This was very interesting to me and got me excited because I am a student of natural health, and I believe in natural medicine, therapy, or treatment before conventional medicine. Nutrition is the science of food and its relationship to health. Nutrients are chemicals in foods that are used by the body for growth, maintenance, and energy. Nutrients that cannot be synthesized by the body must be derived from diet. They are considered essential (vitamins, minerals, some amino acids, and fatty acids). Nutrients that the body can synthesize and can be derived from diet are considered nonessential. Lack of nutrients can result in deficiency syndromes (e.g. kwashiorkor, pellagra), while excess intake of nutrients leads to obesity. Macronutrients are a large amount of nutrients that the body needs, while micronutrients are a minute amount that the body needs. Macronutrients comprise carbohydrates, protein, and fats, the three groups of foods. Carbohydrates increase blood sugar and supply energy. Carbohydrates, proteins, and fats are interchangeable as sources of energy. There are two groups of carbohydrates (simple and complex) carbohydrates. Glucose and sucrose are simple carbohydrates while starches and fiber are complex carbohydrates. Simple and complex carbohydrates affect blood sugar level. Simple carbohydrates increase blood glucose level rapidly, while complex carbohydrates increase blood glucose slowly. Therefore, be advised to reduce your intake of simple carbohydrates if you have pre-diabetes, diabetic, obese, or cardiovascular disease and increase complex carbohydrates. Dietary proteins are broken down into peptides and amino acids, and are required for tissue repairs, maintenance, replacement, function, and growth. More proteins may be used do you rain catabolic state for instance starvation, infections, and burns. There are 20 amino acids of which nine are essential amino acid EAAs and these cannot be synthesized and must be obtained from diet. Both adults and infants require 8 EA As. The body can also use protein for energy where there is scarcity of fat. Fats are broken down into fatty acids glycerol. Fats are required for tissue growth and hormone production. Fats have two groups saturated and unsaturated fats). Saturated fatty acids are common in animal fats and can be solid at room temperature. Palm and coconut oils are plant-based oils that can be liquid at room temperature. Trans fatty acids may elevate LDL cholesterol and Lola HDL and may increase the risk of coronary artery disease. Micronutrients are minerals required for the body in minute traces. Water soluble vitamins are vitamin C (ascorbic acid) and 8 members of vitamin B complex. Water soluble vitamins are A, D, E and K. Another important nutritional requirement is to balance energy or caloric intake to get a desirable body weight. However, energy spending depends on age, sex, weight, and metabolic and physical activity. Let your caloric intake be balanced with your energy expenditure. Nutrition is important in clinical setting and multidisciplinary nutritional support to prevent, diagnose, and treat occult nutritional deficiencies are available. Nutritional deficiency can often worsen health outcomes, and some can cause nutritional deficiencies. Overnutrition on the other hand, may contribute to chronic disorders such as cancer, hypertension, obesity, diabetes mellitus, and coronary artery disease. Therefore, good nutrition with good nutrients is what the body needs to function at an optimum level. Macronutrients are essential to the body, however, do not overindulge in them, and undernutrition will cause other health diseases and nutritional deficiencies.",
+    image: port05,
+    tags: ["Nutrition", "Health", "GMO"],
+    fileUrl: "",
   },
 ];
 
@@ -237,10 +212,10 @@ export default function Portfolio() {
                     )}
 
                     {active.fileUrl && (
-                      <a className="btn btn-secondary" href={active.fileUrl} target="_blank" rel="noreferrer">Download Paper</a>
+                      <a className="btn-secondary" href={active.fileUrl} target="_blank" rel="noreferrer">View Paper</a>
                     )}
 
-                    <button className="btn btn-primary" onClick={() => { document.getElementById("contact")?.scrollIntoView({behavior:"smooth"}); setActive(null); }}>
+                    <button className="btn" onClick={() => { document.getElementById("contact")?.scrollIntoView({behavior:"smooth"}); setActive(null); }}>
                       Hire / Contact
                     </button>
                   </div>

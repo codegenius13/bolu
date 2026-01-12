@@ -226,6 +226,17 @@
   line-height: 1.5;
 }
 
+.project-info a {
+  margin-top: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--primary-color);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
 /* responsive */
 @media (max-width: 640px) {
   .project-highlight {

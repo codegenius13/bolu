@@ -82,9 +82,7 @@ export default function Hero() {
           </h1>
 
           <p className="hero-desc">
-            I build research-grade software and web applications, combining
-            laboratory experience with full-stack engineering to solve real
-            problems.
+            I work on research projects and develop web applications, applying it to my everyday career development.
           </p>
 
           <div className="hero-actions">
