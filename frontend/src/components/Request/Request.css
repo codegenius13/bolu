@@ -1,6 +1,5 @@
 .request {
   padding: 80px 20px;
-  background: linear-gradient(180deg, rgba(248,250,252,0.9), #fff);
 }
 
 .request-inner {
@@ -16,9 +15,6 @@
   margin-bottom: 30px;
 }
 
-.request-head h2 {
-  font-size: 2rem;
-}
 
 /* List */
 .request-list {
@@ -41,7 +37,7 @@
 
 .request-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 18px 40px rgba(2,6,23,0.12);
+  box-shadow: 0 18px 40px rgba(2, 6, 23, 0.12);
 }
 
 .request-card h4 {
@@ -50,14 +46,8 @@
 
 .request-email {
   font-size: 0.85rem;
-  color: var(--grey-color);
 }
 
-.request-desc {
-  font-size: 0.92rem;
-  color: var(--grey-color);
-  line-height: 1.5;
-}
 
 /* Footer */
 .request-footer {
@@ -73,7 +63,6 @@
 
 .request-status {
   font-size: 0.75rem;
-  background: rgba(34,197,94,0.12);
   color: var(--success-color);
   padding: 4px 8px;
   border-radius: 999px;
@@ -89,7 +78,7 @@
 }
 
 .page-btn {
-  border: 1px solid rgba(2,6,23,0.12);
+  border: 1px solid var(--deeper-grey);
   padding: 6px 12px;
   border-radius: 8px;
   background: transparent;
@@ -98,7 +87,7 @@
 
 .page-btn.active {
   background: var(--primary-color);
-  color: #fff;
+  color: var(--light-color);
   border-color: var(--primary-color);
 }
 
@@ -106,18 +95,18 @@
 .request-modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(2,6,23,0.65);
+  background: var(--dark-overlay);
   display: grid;
   place-items: center;
   z-index: 1200;
 }
 
 .request-modal {
+  position: relative;
   background: var(--light-color);
   border-radius: 16px;
   padding: 22px;
   width: min(460px, 92%);
-  box-shadow: 0 30px 80px rgba(2,6,23,0.25);
   animation: scaleIn 0.25s ease;
 }
 
@@ -126,6 +115,7 @@
     opacity: 0;
     transform: scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -140,6 +130,7 @@
   background: transparent;
   font-size: 18px;
   cursor: pointer;
+  color: var(--dark-color);
 }
 
 /* Form */
@@ -152,26 +143,20 @@
 
 .request-form input,
 .request-form textarea {
-  border: 1px solid rgba(2,6,23,0.08);
+  border: 1px solid var(--deeper-grey);
   padding: 10px 12px;
   border-radius: 10px;
-  font-size: 0.95rem;
 }
 
 .request-form textarea {
   resize: none;
 }
 
-.file-list {
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
-}
 
 .file-list li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--card-bg);
   padding: 6px 10px;
   border-radius: 6px;
   margin-bottom: 4px;
@@ -180,26 +165,43 @@
 .file-list button {
   background: transparent;
   border: none;
-  color: red;
+  color: var(--error-color);
   cursor: pointer;
 }
+
 /* Status Colors */
 .status-new {
-  background: rgba(160, 71, 255, 0.12); /* light red */
-  color: black; /* tomato */
+  background: rgba(160, 71, 255, 0.12);
+  /* light red */
+  color: black;
+  /* tomato */
 }
 
 .status-reviewed {
-  background: rgba(255,206,86,0.12); /* light yellow */
-  color: #ffce56; /* yellow */
+  background: rgba(255, 206, 86, 0.12);
+  /* light yellow */
+  color: var(--warning-color);
+  /* yellow */
 }
 
 .status-in-progress {
-  background: rgba(54,162,235,0.12); /* light blue */
-  color: #36a2eb; /* blue */
+  background: rgba(54, 162, 235, 0.12);
+  /* light blue */
+  color: #36a2eb;
+  /* blue */
 }
 
 .status-completed {
-  background: rgba(34,197,94,0.12); /* light green */
-  color: #22c55e; /* green */
+  background: rgba(34, 197, 94, 0.12);
+  /* light green */
+  color: var(--success-color);
+  /* green */
+}
+
+@media (max-width: 410px) {
+  .request-modal {
+    padding: 16px;
+    width: min(420px, 85%);
+    margin-left: -10px;
+  }
 }

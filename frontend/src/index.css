@@ -3,9 +3,9 @@
 
 :root {
     /* Core brand colors */
-    --primary-color: #1e3a8a;        /* Deep academic blue */
-    --secondary-color: #0ea5e9;      /* Tech cyan / sky blue */
-    --accent-color: #38bdf8;         /* Soft highlight blue */
+    --primary-color: rgb(79, 57, 3);       
+    --secondary-color: rgb(218, 165, 32);      
+    --accent-color: #38bdf8;        
 
     /* Status colors */
     --success-color: #22c55e;
@@ -13,10 +13,12 @@
     --warning-color: #f59e0b;
 
     /* Neutrals */
-    --dark-color: #020617;           /* Almost black */
-    --dark-overlay: rgba(2, 6, 23, 0.88);
+    --dark-color: rgb(0, 0, 0);           /* Almost black */
+    --dark-overlay: rgba(0, 0, 0, 0.6);
     --light-color: #f8fafc;          /* Soft white */
-    --grey-color: #64748b;           /* Reading-friendly grey */
+    --grey-color: #f3f4f6; 
+    --deeper-grey: rgb(206, 203, 203);         
+
 
     /* Typography */
     --font-heading: "Poppins", sans-serif;
@@ -89,7 +91,7 @@ p {
 
 body {
     background-color: var(--light-color);
-    color: var(--primary-color);
+    color: var(--dark-color);
     font-size: var(--font-size-base);
     font-weight: var(--font-weight-normal);
     font-family: var(--font-body);

@@ -25,7 +25,7 @@ const Footer = () => {
           </a>
 
           <a
-            href="https://linkedin.com/"
+            href="https://www.linkedin.com/in/boluwatife-ikuerowo-80490226b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
             target="_blank"
             rel="noreferrer"
             aria-label="LinkedIn"

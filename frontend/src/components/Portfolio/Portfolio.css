@@ -1,8 +1,6 @@
 /* Portfolio / Works */
 .portfolio {
     padding: 80px 20px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.95));
-    color: var(--dark-color);
 }
 
 .portfolio-inner {
@@ -19,15 +17,7 @@
     flex-wrap: wrap;
 }
 
-.portfolio-head h2 {
-    font-size: 2rem;
-    margin-bottom: 4px;
-}
 
-.muted {
-    color: var(--grey-color);
-    font-size: 0.95rem;
-}
 
 /* controls */
 .controls {
@@ -45,7 +35,7 @@
 .filter {
     padding: 8px 12px;
     border-radius: 999px;
-    border: 1px solid rgba(2, 6, 23, 0.06);
+    border: 1px solid var(--deeper-grey);
     background: transparent;
     cursor: pointer;
     transition: var(--transition);
@@ -53,16 +43,15 @@
 }
 
 .filter.active {
-    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    background: var(--primary-color);
     color: var(--light-color);
-    box-shadow: 0 10px 26px rgba(30, 58, 138, 0.08);
 }
 
 /* search */
 .search input {
     padding: 10px 14px;
     border-radius: 10px;
-    border: 1px solid rgba(2, 6, 23, 0.06);
+    border: 1px solid var(--deeper-grey);
     min-width: 300px;
 }
 
@@ -85,10 +74,11 @@
     cursor: pointer;
     transition: transform 0.28s ease, box-shadow 0.28s ease;
     outline: none;
+    height: 100%;
 }
 
 .card:focus {
-    box-shadow: 0 12px 30px rgba(30, 58, 138, 0.12);
+    box-shadow: var(--box-shadow);
     transform: translateY(-6px);
 }
 
@@ -115,20 +105,12 @@
     display: flex;
     justify-content: space-between;
     gap: 10px;
-    color: var(--grey-color);
-    font-size: 0.9rem;
 }
 
 .card-title {
     font-size: 1.05rem;
     color: var(--dark-color);
     margin: 0;
-}
-
-.card-short {
-    color: var(--grey-color);
-    font-size: 0.92rem;
-    line-height: 1.4;
 }
 
 .card-tags {
@@ -139,12 +121,12 @@
 }
 
 .tag {
-    background: rgba(14, 165, 233, 0.06);
+    background: var(--grey-color);
     padding: 6px 8px;
     border-radius: 999px;
     font-size: 0.8rem;
     color: var(--primary-color);
-    font-weight: 700;
+    font-weight: 600;
 }
 
 /* loader / empty */
@@ -161,7 +143,7 @@
     inset: 0;
     display: grid;
     place-items: center;
-    background: rgba(2, 6, 23, 0.6);
+    background: var(--dark-overlay);
     z-index: 1200;
     padding: 20px;
     animation: overlayIn 0.18s ease;
@@ -183,7 +165,6 @@
     background: var(--light-color);
     border-radius: 14px;
     overflow: auto;
-    box-shadow: 0 30px 80px rgba(2, 6, 23, 0.2);
     position: relative;
     padding: 18px;
 }
@@ -221,14 +202,9 @@
     gap: 12px;
 }
 
-.modal-meta {
-    color: var(--grey-color);
-    font-size: 0.9rem;
-}
 
 .modal-desc {
     color: var(--dark-color);
-    line-height: 1.5;
 }
 
 /* modal-tags & actions */
@@ -245,10 +221,6 @@
     flex-wrap: wrap;
 }
 
-.modal .btn {
-    border-radius: 8px;
-    padding: 8px 12px;
-}
 
 /* responsive */
 @media (max-width: 980px) {

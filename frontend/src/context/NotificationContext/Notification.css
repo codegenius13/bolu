@@ -4,7 +4,7 @@
 .notify-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
+  background: var(--dark-overlay);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -86,7 +86,7 @@
 
 .notify-btn.primary {
   background: var(--accent-color);
-  color: #fff;
+  color: var(--light-color);
 }
 
 .notify-popup.success .notify-btn.primary {
@@ -101,7 +101,7 @@
 
 .notify-btn.secondary {
   background: transparent;
-  border: 1px solid #ccc;
+  border: 1px solid var(--deeper-grey);
 }
 
 .notify-btn:hover {

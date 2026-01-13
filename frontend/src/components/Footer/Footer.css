@@ -1,5 +1,5 @@
 .footer {
-  background: var(--dark-color);
+  background: var(--primary-color);
   color: var(--light-color);
   padding: 50px 20px 20px;
 }
@@ -16,7 +16,6 @@
 
 /* Brand */
 .footer-brand h3 {
-  font-size: 1.4rem;
   margin-bottom: 6px;
 }
 
@@ -26,7 +25,6 @@
 }
 
 .footer-brand p {
-  font-size: 0.85rem;
   color: var(--grey-color);
   margin: 0;
 }
@@ -41,18 +39,18 @@
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--deeper-grey);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--light-color);
+  color: var(--primary-color);
   font-size: 1rem;
   transition: var(--transition);
 }
 
 .footer-socials a:hover {
   background: var(--secondary-color);
-  color: #fff;
+  color: var(--light-color);
   transform: translateY(-4px);
 }
 
@@ -60,7 +58,7 @@
 .footer-bottom {
   margin-top: 30px;
   padding-top: 15px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--deeper-grey);
   text-align: center;
   font-size: 0.75rem;
   color: var(--grey-color);

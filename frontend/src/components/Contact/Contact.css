@@ -1,12 +1,6 @@
 .contact {
   padding: 90px 20px;
-  background: linear-gradient(
-    180deg,
-    #fff,
-    rgba(248,250,252,0.9)
-  );
 }
-
 .contact-inner {
   max-width: 1100px;
   margin: auto;
@@ -17,14 +11,7 @@
 }
 
 /* Info */
-.contact-info h2 {
-  font-size: 2.2rem;
-  margin-bottom: 12px;
-}
-
 .contact-info p {
-  color: var(--grey-color);
-  line-height: 1.6;
   margin-bottom: 26px;
 }
 
@@ -35,13 +22,10 @@
 }
 
 .contact-details span {
-  font-size: 0.8rem;
-  color: var(--grey-color);
   margin-right: 5px;
 }
 
 .contact-details strong {
-  font-size: 0.95rem;
   color: var(--dark-color);
 }
 
@@ -62,10 +46,9 @@
 
 .contact-form input,
 .contact-form textarea {
-  border: 1px solid rgba(2,6,23,0.08);
+  border: 1px solid var(--deeper-grey);
   padding: 11px 12px;
   border-radius: 10px;
-  font-size: 0.95rem;
 }
 
 .contact-form textarea {
@@ -74,7 +57,6 @@
 
 .contact-success {
   margin-top: 8px;
-  font-size: 0.9rem;
   color: var(--success-color);
 }
 

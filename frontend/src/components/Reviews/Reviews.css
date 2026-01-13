@@ -1,6 +1,5 @@
 .reviews {
   padding: 80px 20px;
-  background: linear-gradient(180deg, #fff, rgba(248,250,252,0.9));
 }
 
 .reviews-inner {
@@ -63,22 +62,18 @@
 }
 
 .star {
-  color: #cbd5e1;
+  color: var(--deeper-grey);
   font-size: 1.1rem;
 }
 
 .star.filled {
-  color: #f59e0b;
+  color: var(--warning-color);
 }
 
-.review-comment {
-  color: var(--grey-color);
-  font-size: 0.95rem;
-}
 
 .review-author {
   margin-top: 10px;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--primary-color);
 }
 
@@ -101,7 +96,7 @@
 .review-modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(2,6,23,0.65);
+  background: var(--dark-overlay);
   display: grid;
   place-items: center;
   z-index: 1300;
@@ -126,10 +121,9 @@
 .review-form input,
 .review-form select,
 .review-form textarea {
-  border: 1px solid rgba(2,6,23,0.08);
+  border: 1px solid var(--deeper-grey);
   padding: 10px 12px;
   border-radius: 10px;
-  font-size: 0.95rem;
 }
 
 .modal-close {
@@ -153,19 +147,18 @@
   left: 0;
   right: 0;
   background: var(--light-color);
-  border: 1px solid rgba(2,6,23,0.12);
-  border-radius: 10px;
+  border: 1px solid var(--deeper-grey);
   max-height: 180px;
   overflow-y: auto;
   z-index: 20;
   margin-top: 4px;
   width: 100%;
+  box-shadow: var(--box-shadow);
 }
 
 .job-suggestions li {
   padding: 10px 12px;
   cursor: pointer;
-  font-size: 0.9rem;
 }
 
 .job-suggestions li:hover {
@@ -173,13 +166,12 @@
 }
 
 .job-suggestions .no-job {
-  color: var(--grey-color);
   cursor: default;
 }
 .valid {
-  border: 1.5px solid #16a34a !important; /* green */
+  border: 1.5px solid var(--success-color) !important; /* green */
 }
 
 .invalid {
-  border: 1.5px solid #dc2626 !important; /* red */
+  border: 1.5px solid var(--error-color) !important; /* red */
 }

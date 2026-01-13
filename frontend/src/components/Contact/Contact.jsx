@@ -151,7 +151,7 @@ export default function Contact() {
           />
 
           <button
-            className="btn btn-primary"
+            className="btn"
             type="submit"
             disabled={loading || formData.message.length < 5}
           >

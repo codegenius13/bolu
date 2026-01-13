@@ -40,7 +40,7 @@
     height: 480px;
     top: -10%;
     left: -10%;
-    background: rgba(30, 59, 138, 0.519);
+    background: rgba(218, 165, 32, 0.264);
 }
 
 .hero::after {
@@ -48,7 +48,7 @@
     height: 420px;
     bottom: -12%;
     right: -8%;
-    background: rgba(14, 164, 233, 0.548);
+    background: rgba(79, 57, 3, 0.312);
 }
 
 /* Ensure content is above background and blobs */
@@ -70,7 +70,7 @@
 
 .lead-badge {
     display: inline-block;
-    background: rgba(14, 164, 233, 0.249);
+    background: var(--primary-color);
     color: var(--light-color);
     padding: 8px 14px;
     border-radius: 999px;
@@ -81,7 +81,7 @@
 .hero-title {
     line-height: 1.1;
     margin-bottom: 12px;
-    color: var(--dark-color);
+    color: var(--light-color);
 }
 
 .hero-name {
@@ -205,7 +205,6 @@
     padding: 6px 10px;
     border-radius: 999px;
     background: rgba(30, 58, 138, 0.08);
-    font-size: 0.85rem;
     font-weight: 600;
 }
 
