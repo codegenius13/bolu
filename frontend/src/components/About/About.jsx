@@ -87,11 +87,7 @@ export default function About() {
               <div className="project-info">
                 <h4>Reverra — AI Research Analyzer</h4>
                 <p>
-                  I am currently developing <strong>Reverra</strong>, an AI-powered
-                  research assistant designed to analyze academic papers, act as a
-                  researcher notebook, and support data analysis workflows.
-                  It helps researchers extract insights, organize notes, and
-                  improve research productivity.
+                  I am currently developing <strong>Reverra</strong> a research community platform that enables idea sharing, collaboration, meetings, and industry connections for students and researchers across different fields and institutions.
                 </p>
                 <a href="" target="_blank">View Site <FaLink /></a>
               </div>
