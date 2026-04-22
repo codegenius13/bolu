@@ -10,10 +10,10 @@ export default function About() {
 
   const skills = [
     { name: "JavaScript / React", pct: 92 },
-    { name: "Node.js / Express", pct: 88 },
-    { name: "Data Analysis", pct: 78 },
-    { name: "Laboratory Methods", pct: 75 },
-    { name: "Scientific Writing", pct: 85 },
+    { name: "Node.js / Express / Database (MongoDb)", pct: 88 },
+    { name: "Data Analysis", pct: 83 },
+    { name: "Laboratory Research", pct: 75 },
+    { name: "Technical Writing", pct: 81 },
   ];
 
   // IntersectionObserver to trigger animations when section enters view
@@ -47,8 +47,8 @@ export default function About() {
     const animate = (ts) => {
       const progress = Math.min((ts - start) / duration, 1);
       setCounts({
-        projects: Math.floor(progress * 5), // example final values
-        clients: Math.floor(progress * 4),
+        projects: Math.floor(progress * 3), // example final values
+        clients: Math.floor(progress * 2),
         years: Math.floor(progress * 3 + 1),
       });
       if (progress < 1) raf = requestAnimationFrame(animate);
@@ -66,12 +66,12 @@ export default function About() {
           <h2 id="about-title">About Me</h2>
 
           <p className="about-leading">
-            I'm Bolu Ikuerowo — I work on research projects and develop web applications, applying both to my everyday career growth. I focus on clear, reproducible work, clean code, and practical results.
+            I'm Bolu Ikuerowo — I build useful digital systems, analyze research data, and create web
+            solutions that help ideas become clear, practical, and impactful.
           </p>
 
           <div className="about-text">
             <p>
-              Over the years I have worked on various research projects and MERN web applications.
               I take remote and contract work via LinkedIn and also
               work directly with small businesses and institutions.
             </p>
@@ -80,14 +80,14 @@ export default function About() {
               <div className="project-image">
                 <img
                   src=""
-                  alt="Reverra AI Research Platform"
+                  alt="research data analysis and generator interface"
                 />
               </div>
 
               <div className="project-info">
-                <h4>Reverra — AI Research Analyzer</h4>
+                <h4>Data4U</h4>
                 <p>
-                  I am currently developing <strong>Reverra</strong> a research community platform that enables idea sharing, collaboration, meetings, and industry connections for students and researchers across different fields and institutions.
+                  I am currently developing <strong>Data4U</strong> — a web-based tool that simplifies research data analysis and report generation. It provides an intuitive interface for researchers to upload datasets, perform standard analyses, and generate comprehensive reports without needing advanced coding skills.
                 </p>
                 <a href="" target="_blank">View Site <FaLink /></a>
               </div>

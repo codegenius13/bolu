@@ -28,7 +28,7 @@
 .service-card {
   background: var(--light-color);
   padding: 22px 18px;
-  border-radius: 16px;
+  border-radius: 5px;
   box-shadow: var(--box-shadow);
   transition: transform 0.35s ease, box-shadow 0.35s ease;
   animation: floatUp 3.5s ease-in-out infinite;

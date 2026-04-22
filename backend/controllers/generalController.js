@@ -230,34 +230,56 @@ export const getRequests = async (req, res) => {
   }
 };
 
+
 export const createReview = async (req, res) => {
   try {
-    const { name, jobTitleInput, rating, comment, dateOption, customDate } = req.body;
+    const {
+      name,
+      jobTitleInput,
+      rating,
+      comment,
+      dateOption,
+      customDate,
+    } = req.body;
 
-    // Basic validation
-    if (!name || !jobTitleInput || !rating || !comment) {
-      return res.status(400).json({
-        success: false,
-        message: "All fields except custom date are required",
+    if (!name?.trim() || !jobTitleInput?.trim() || !rating || !comment?.trim()) {
+  return res.status(400).json({
+    success: false,
+    message: "All fields are required",
+  });
+}
+
+    // Upload image if provided
+    let imageUrl = "";
+
+    if (req.file) {
+      const result = await cloudinary.uploader.upload(req.file.path, {
+        folder: "reviews",
       });
+
+      imageUrl = result.secure_url;
     }
 
-    // Find the job request by jobTitle (case-insensitive)
     const request = await Request.findOne({
       jobTitle: { $regex: new RegExp(`^${jobTitleInput}$`, "i") },
     });
 
-    // Determine reviewDate
+    if (!request) {
+  return res.status(400).json({
+    success: false,
+    message: "Please select a valid job from suggestions",
+  });
+}
+
     let reviewDate;
     if (dateOption === "recent" && request) {
       reviewDate = request.createdAt;
     } else if (dateOption === "old" && customDate) {
       reviewDate = new Date(customDate);
     } else {
-      reviewDate = new Date(); // fallback to current date
+      reviewDate = new Date();
     }
 
-    // Create review
     const newReview = await Review.create({
       name,
       jobRequest: request ? request._id : null,
@@ -265,6 +287,7 @@ export const createReview = async (req, res) => {
       rating,
       comment,
       reviewDate,
+      image: imageUrl, // ✅ NEW FIELD
     });
 
     res.status(201).json({
@@ -273,11 +296,11 @@ export const createReview = async (req, res) => {
       data: newReview,
     });
   } catch (error) {
-    console.error("Create Review Error:", error);
+    console.error(error);
 
     res.status(500).json({
       success: false,
-      message: "Server error while creating review",
+      message: "Server error",
     });
   }
 };

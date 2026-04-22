@@ -33,7 +33,7 @@
 .contact-form {
   background: var(--light-color);
   padding: 26px;
-  border-radius: 18px;
+  border-radius: 5px;
   box-shadow: var(--box-shadow);
   display: flex;
   flex-direction: column;

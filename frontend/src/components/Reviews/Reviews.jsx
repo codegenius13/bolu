@@ -22,6 +22,7 @@ export default function Reviews() {
   const [jobSuggestions, setJobSuggestions] = useState([]);
   const [filteredJobs, setFilteredJobs] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const [image, setImage] = useState(null);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -130,7 +131,9 @@ export default function Reviews() {
 
   const isRatingValid = Boolean(formData.rating);
 
-  const isJobValid = jobSuggestions.includes(formData.jobTitleInput);
+  const isJobValid = jobSuggestions.some(
+  (job) => job.toLowerCase().trim() === formData.jobTitleInput.toLowerCase().trim()
+);
 
   const isFormValid =
     isNameValid && isCommentValid && isRatingValid && isJobValid;
@@ -145,10 +148,30 @@ export default function Reviews() {
     try {
       setLoading(true);
 
+      const form = new FormData();
+      form.append("name", formData.name);
+      form.append("jobTitleInput", formData.jobTitleInput);
+      form.append("rating", formData.rating);
+      form.append("comment", formData.comment);
+      form.append("dateOption", formData.dateOption);
+      form.append("customDate", formData.customDate);
+
+      if (image) {
+        form.append("image", image);
+      }
+
+      if (!formData.rating) {
+  showNotification({
+    type: "error",
+    title: "Missing Rating",
+    message: "Please select a rating",
+  });
+  return;
+}
+
       const res = await fetch(`${API_BASE}/reviews`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: form,
       });
 
       const data = await res.json();
@@ -158,25 +181,18 @@ export default function Reviews() {
       showNotification({
         type: "success",
         title: "Review Submitted",
-        message: data.message || "Thank you for your feedback!",
+        message: data.message,
       });
 
       setOpen(false);
-      setFormData({
-        name: "",
-        jobTitleInput: "",
-        rating: "",
-        comment: "",
-        dateOption: "recent",
-        customDate: "",
-      });
+      setImage(null);
 
       fetchReviews(1);
     } catch (err) {
       showNotification({
         type: "error",
         title: "Submission Failed",
-        message: err.message || "Failed to submit review",
+        message: err.message,
       });
     } finally {
       setLoading(false);
@@ -207,11 +223,23 @@ export default function Reviews() {
           ) : (
             reviews.map((r) => (
               <article className="review-card" key={r._id}>
-                <div className="review-top">
-                  <h4>{r.jobTitle}</h4>
-                  <span className="review-date">
-                    {new Date(r.reviewDate).toLocaleDateString()}
-                  </span>
+                <div className="review-header">
+                  <div className="review-avatar">
+                    {r.image ? (
+                      <img src={r.image} alt={r.name} />
+                    ) : (
+                      <div className="avatar-fallback">
+                        {r.name.charAt(0)}
+                      </div>
+                    )}
+                  </div>
+
+                  <div>
+                    <h4>{r.jobTitle}</h4>
+                    <span className="review-date">
+                      {new Date(r.reviewDate).toLocaleDateString()}
+                    </span>
+                  </div>
                 </div>
 
                 <div className="review-stars">
@@ -302,6 +330,26 @@ export default function Reviews() {
                 className={formData.name ? (isNameValid ? "valid" : "invalid") : ""}
                 required
               />
+
+              <input
+                type="file"
+                accept="image/*"
+                onChange={(e) => setImage(e.target.files[0])}
+              />
+
+              {image && (
+                <img
+                  src={URL.createObjectURL(image)}
+                  alt="preview"
+                  style={{
+                    width: "80px",
+                    height: "80px",
+                    objectFit: "cover",
+                    borderRadius: "50%",
+                    marginTop: "10px",
+                  }}
+                />
+              )}
 
               <select
                 name="rating"

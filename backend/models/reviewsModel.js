@@ -14,7 +14,7 @@ const reviewSchema = new mongoose.Schema(
     jobRequest: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Request",
-      required: true,
+      required: false,
     },
 
     jobTitle: {
@@ -37,6 +37,11 @@ const reviewSchema = new mongoose.Schema(
       trim: true,
       minlength: 5,
       maxlength: 2000,
+    },
+
+    image: {
+      type: String,
+      default: "",
     },
 
     reviewDate: {

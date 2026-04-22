@@ -116,7 +116,7 @@
   background: var(--light-color);
   color: var(--primary-color);
   padding: 8px 12px;
-  border-radius: 10px;
+  border-radius: 5px;
   font-size: 0.75rem;
   box-shadow: var(--box-shadow);
   animation: fadeIn 0.4s ease;

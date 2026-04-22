@@ -5,6 +5,7 @@
   position: fixed;
   inset: 0;
   background: var(--dark-overlay);
+  backdrop-filter: blur(5px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,7 +20,7 @@
   width: 90%;
   max-width: 420px;
   background: var(--light-color);
-  border-radius: 16px;
+  border-radius: 5px;
   padding: 30px 24px;
   text-align: center;
   animation: fadeInPopup 0.35s ease forwards; /* changed */

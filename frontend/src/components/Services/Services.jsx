@@ -8,8 +8,8 @@ export default function Services() {
   const services = [
     {
       icon: <FaBrain />,
-      title: "AI & Data Analysis",
-      desc: "Research paper analysis, data processing, and insight extraction using modern AI tools."
+      title: "Research Data Analysis",
+      desc: "Research paper analysis, data processing, and insight extraction."
     },
     {
       icon: <FaLaptopCode />,
@@ -19,12 +19,12 @@ export default function Services() {
     {
       icon: <PiTestTubeFill />,
       title: "Laboratory & Research",
-      desc: "Biochemical analysis, documentation, QC workflows, and scientific reporting."
+      desc: "Result analysis, documentation, QC workflows, and digital noting."
     },
     {
       icon: <GiArchiveResearch />,
-      title: "Scientific Writing",
-      desc: "Clear research writing, reports, proposals, and technical documentation."
+      title: "Research & Tech",
+      desc: "Writing with digital tools (Zotero, Grammarly etc.) and technical documentation."
     }
   ];
 

@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.post("/requests", upload.array("attachments", 10), createRequest);
 router.get("/requests", getRequests); 
-router.post("/reviews", createReview);
+router.post("/reviews", upload.single("image"), createReview);
 router.get("/reviews", getReviews);
 router.post("/contact", sendContact);
 

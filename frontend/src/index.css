@@ -109,14 +109,14 @@ a {
 
 select {
     background-color: inherit;
-    border-radius: 0 !important;
+    border-radius: 5 !important;
     padding-right: 2rem;
 }
 
 select {
-    -webkit-border-radius: 0 !important;
-    -moz-border-radius: 0 !important;
-    border-radius: 0 !important;
+    -webkit-border-radius: 5px !important;
+    -moz-border-radius: 5px !important;
+    border-radius: 5px !important;
 }
 
 input[type="text"],
@@ -126,7 +126,7 @@ input[type="number"],
 input[type="password"],
 input[type="tel"],
 textarea {
-    border-radius: 0 !important;
+    border-radius: 5px !important;
     -webkit-appearance: none;
 }
 
@@ -139,8 +139,8 @@ select {
 }
 
 input:-webkit-autofill {
-    border-radius: 0 !important;
-    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+    border-radius: 5px !important;
+    -webkit-box-shadow: 0 0 0px 1000px white  inset !important;
 }
 
 
@@ -157,7 +157,7 @@ button {
     outline: none;
     -webkit-appearance: none;
     appearance: none;
-    border-radius: 0 !important;
+    border-radius: 5px !important;
 }
 
 h1 {
@@ -221,10 +221,11 @@ h4 {
     cursor: pointer;
     transition: var(--transition);
     text-align: center;
+    border-radius: 5px;
 }
 
 .btn:hover {
-    background-color: transparent;
+    background-color: var(--light-color);
     color: var(--primary-color);
 }
 
@@ -236,6 +237,7 @@ h4 {
     transition: var(--transition);
     padding: 10px 20px;
     text-align: center;
+    border-radius: 5px;
 }
 
 .btn-secondary:hover {

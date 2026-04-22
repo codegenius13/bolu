@@ -10,7 +10,7 @@ const Footer = () => {
           <h3>
             <span>Bolu</span>Ikuerowo
           </h3>
-          <p>Researcher & Web Developer</p>
+          <p>Digital Infrastructure • Research • Data • Web</p>
         </div>
 
         {/* Socials */}

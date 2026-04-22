@@ -1,14 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import "./Hero.css";
-import bgImage from "../../assets/img/workstation.jpg"; 
-import profile from "../../assets/img/profile.jpg";
+import bgImage from "../../assets/img/workstation.jpg";
+import profile from "../../assets/img/profile2.jpg";
 
 export default function Hero() {
+  const prefersReducedMotion = useReducedMotion();
+
   const phrases = [
-    "Researcher",
-    "Web Developer",
-    "Biochemistry Enthusiast",
-    "Problem Solver",
+    "Digital Infrastructure Specialist",
+    "Research Data Analyst",
+    "Full-Stack Developer",
   ];
 
   const [typed, setTyped] = useState("");
@@ -19,36 +21,33 @@ export default function Hero() {
   const typingTimeout = useRef(null);
 
   useEffect(() => {
-    const handleTyping = () => {
+    const typeNext = () => {
       const currentPhrase = phrases[phraseIndex.current];
 
       if (charIndex.current < currentPhrase.length) {
-        // Type next character
-        setTyped(currentPhrase.slice(0, charIndex.current + 1));
         charIndex.current += 1;
-        typingTimeout.current = setTimeout(handleTyping, 120);
+        setTyped(currentPhrase.slice(0, charIndex.current));
+        typingTimeout.current = setTimeout(typeNext, 90);
       } else {
-        // Wait, then erase
-        typingTimeout.current = setTimeout(handleErasing, 1000);
+        typingTimeout.current = setTimeout(eraseNext, 1200);
       }
     };
 
-    const handleErasing = () => {
+    const eraseNext = () => {
       if (charIndex.current > 0) {
-        setTyped(phrases[phraseIndex.current].slice(0, charIndex.current - 1));
         charIndex.current -= 1;
-        typingTimeout.current = setTimeout(handleErasing, 60);
+        const currentPhrase = phrases[phraseIndex.current];
+        setTyped(currentPhrase.slice(0, charIndex.current));
+        typingTimeout.current = setTimeout(eraseNext, 45);
       } else {
-        // Move to next phrase
         phraseIndex.current = (phraseIndex.current + 1) % phrases.length;
-        typingTimeout.current = setTimeout(handleTyping, 300);
+        typingTimeout.current = setTimeout(typeNext, 250);
       }
     };
 
-    handleTyping();
+    typeNext();
 
-    // Hide speech bubble after 5s
-    const speechTimer = setTimeout(() => setShowSpeech(false), 5000);
+    const speechTimer = setTimeout(() => setShowSpeech(false), 7000);
 
     return () => {
       clearTimeout(typingTimeout.current);
@@ -61,71 +60,142 @@ export default function Hero() {
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: prefersReducedMotion ? 0 : 0.12,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 24 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.7, ease: "easeOut" },
+    },
+  };
+
+  const imageVariants = {
+    hidden: { opacity: 0, scale: 0.92, x: 60 },
+    show: {
+      opacity: 1,
+      scale: 1,
+      x: 0,
+      transition: { duration: 0.9, ease: "easeOut" },
+    },
+  };
+
   return (
     <section className="hero" id="hero">
-      {/* Background overlay */}
-      <div
-        className="hero-bg"
-        style={{ backgroundImage: `url(${bgImage})` }}
-      />
+      <div className="hero-bg" style={{ backgroundImage: `url(${bgImage})` }} />
+      <div className="hero-overlay" />
 
-      <div className="hero-inner">
-        {/* LEFT */}
-        <div className="hero-left">
-          <span className="lead-badge">Research & Web Development</span>
+      <motion.div
+        className="hero-inner"
+        variants={containerVariants}
+        initial="hidden"
+        animate="show"
+      >
+        <motion.div className="hero-left" variants={itemVariants}>
+          <span className="lead-badge">
+            Digital Infrastructure • Research • Data • Web
+          </span>
 
           <h1 className="hero-title">
             Hi, I’m <span className="hero-name">Bolu Ikuerowo</span>
             <br />
-            <span className="typing">{typed}</span>
-            <span className="cursor">|</span>
+            <span className="typing-wrap">
+              <span className="typing">{typed}</span>
+              <span className="cursor">|</span>
+            </span>
           </h1>
 
           <p className="hero-desc">
-            I work on research projects and develop web applications, applying it to my everyday career development.
+            I build useful digital systems, analyze research data, and create web
+            solutions that help ideas become clear, practical, and impactful.
           </p>
 
           <div className="hero-actions">
-            <button
-              className="btn"
-              onClick={() => scrollTo("requests")}
-            >
+            <button className="btn hero-btn-dark" onClick={() => scrollTo("requests")}>
               Request a Job
             </button>
-
-            <button
-              className="btn-primary"
-              onClick={() => scrollTo("work")}
-            >
+            <button className="btn-primary hero-btn-light" onClick={() => scrollTo("work")}>
               View Works
             </button>
           </div>
-        </div>
 
-        {/* RIGHT */}
-        <div className="hero-right">
-          <div
-            className="profile-card"
-            onMouseEnter={() => setShowSpeech(true)}
-            onMouseLeave={() => setShowSpeech(false)}
-          >
-            <div className="avatar">
-              <img src={profile} alt="Profile" />
+          <div className="hero-proof">
+            <div className="proof-card">
+              <strong>Research</strong>
+              <span>Data analysis, reports, and structured insights</span>
             </div>
-
-            <div className={`speech ${showSpeech ? "show" : ""}`}>
-              <strong>Send job request</strong>
-              <span>or contact me</span>
+            <div className="proof-card">
+              <strong>Development</strong>
+              <span>Modern websites, dashboards, and app systems</span>
             </div>
-
-            <div className="profile-tags">
-              <span>Research</span>
-              <span>Full-Stack</span>
-              <span>Biochemistry</span>
+            <div className="proof-card">
+              <strong>Infrastructure</strong>
+              <span>Digital workflows and dependable solutions</span>
             </div>
           </div>
-        </div>
-      </div>
+        </motion.div>
+
+        <motion.div className="hero-right" variants={imageVariants}>
+          <div className="portrait-stage">
+            <motion.div
+              className="portrait-glow portrait-glow-one"
+              animate={{ y: [0, -16, 0], x: [0, 8, 0] }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+            <motion.div
+              className="portrait-glow portrait-glow-two"
+              animate={{ y: [0, 14, 0], x: [0, -10, 0] }}
+              transition={{
+                duration: 7,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+
+            <div className="portrait-frame">
+              <div className="portrait-top-ribbon">Portfolio Portrait</div>
+
+              <div className="portrait-window">
+                <img src={profile} alt="Bolu Ikuerowo portrait" />
+              </div>
+
+              <motion.div
+                className={`portrait-speech ${showSpeech ? "show" : ""}`}
+                initial={{ opacity: 0, y: 18, scale: 0.95 }}
+                animate={{
+                  opacity: showSpeech ? 1 : 0.82,
+                  y: showSpeech ? 0 : 8,
+                  scale: 1,
+                }}
+                transition={{ duration: 0.35 }}
+              >
+                <span className="speech-label">Speaking</span>
+                <strong>Send a job request</strong>
+                <span>or contact me for research and digital solutions.</span>
+                <i className="speech-tail" />
+              </motion.div>
+
+              <div className="portrait-bottom">
+                <div className="portrait-base" />
+                <div className="portrait-shadow" />
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
