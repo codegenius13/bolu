@@ -177,14 +177,14 @@ export default function Request() {
                 <p className="request-desc">{req.description}</p>
                 <div
                   className={`request-status ${req.status === "new"
-                      ? "status-new"
-                      : req.status === "reviewed"
-                        ? "status-reviewed"
-                        : req.status === "in-progress"
-                          ? "status-in-progress"
-                          : req.status === "completed"
-                            ? "status-completed"
-                            : ""
+                    ? "status-new"
+                    : req.status === "reviewed"
+                      ? "status-reviewed"
+                      : req.status === "in-progress"
+                        ? "status-in-progress"
+                        : req.status === "completed"
+                          ? "status-completed"
+                          : ""
                     }`}
                 >
                   {req.status.charAt(0).toUpperCase() + req.status.slice(1)}
@@ -260,17 +260,26 @@ export default function Request() {
                 name="description"
                 placeholder="Job description"
                 value={formData.description}
-                onChange={handleChange}
+                onChange={(e) => {
+                  if (e.target.value.length <= 2000) {
+                    handleChange(e);
+                  }
+                }}
                 required
               />
               <div
                 style={{
                   fontSize: "0.85rem",
-                  color: formData.description.length >= 10 ? "green" : "red",
+                  color:
+                    formData.description.length >= 1800
+                      ? "orange"
+                      : formData.description.length >= 2000
+                        ? "red"
+                        : "green",
                   marginTop: "4px",
                 }}
               >
-                {formData.description.length}/10 characters
+                {formData.description.length} / 2000 characters
               </div>
 
               <input
@@ -303,14 +312,10 @@ export default function Request() {
               )}
 
               <small className="muted">Max total size: 25MB · Up to 10 files</small>
-              <small className="muted">
-                Hold Ctrl (Windows) or Cmd (Mac) to select multiple files at once.
-              </small>
-
               <button
                 className="btn btn-secondary"
                 type="submit"
-                disabled={loading || formData.description.length < 10}
+                disabled={loading || formData.description.length < 10 || formData.description.length > 2000}
               >
                 {loading ? "Submitting..." : "Submit Request"}
               </button>

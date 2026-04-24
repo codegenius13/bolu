@@ -88,6 +88,13 @@ export const createRequest = async (req, res) => {
       });
     }
 
+    if (description.length > 2000) {
+      return res.status(400).json({
+        success: false,
+        message: "Description cannot exceed 2000 characters",
+      });
+    }
+
     let uploadedFiles = [];
 
     if (req.files && req.files.length > 0) {
@@ -243,11 +250,11 @@ export const createReview = async (req, res) => {
     } = req.body;
 
     if (!name?.trim() || !jobTitleInput?.trim() || !rating || !comment?.trim()) {
-  return res.status(400).json({
-    success: false,
-    message: "All fields are required",
-  });
-}
+      return res.status(400).json({
+        success: false,
+        message: "All fields are required",
+      });
+    }
 
     // Upload image if provided
     let imageUrl = "";
@@ -265,11 +272,11 @@ export const createReview = async (req, res) => {
     });
 
     if (!request) {
-  return res.status(400).json({
-    success: false,
-    message: "Please select a valid job from suggestions",
-  });
-}
+      return res.status(400).json({
+        success: false,
+        message: "Please select a valid job from suggestions",
+      });
+    }
 
     let reviewDate;
     if (dateOption === "recent" && request) {
