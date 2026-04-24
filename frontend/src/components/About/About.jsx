@@ -85,9 +85,9 @@ export default function About() {
               </div>
 
               <div className="project-info">
-                <h4>Data4U</h4>
+                <h4>Infralytix</h4>
                 <p>
-                  I am currently developing <strong>Data4U</strong> — a web-based tool that simplifies research data analysis and report generation. It provides an intuitive interface for researchers to upload datasets, perform standard analyses, and generate comprehensive reports without needing advanced coding skills.
+                  I am currently developing <strong>Infralytix</strong> — a web-based tool that simplifies research data analysis and report generation. It provides an intuitive interface for datasets uploads, perform simulated visualizations on the basis of standard research, and generate comprehensive reports without needing advanced coding skills.
                 </p>
                 <a href="" target="_blank">View Site <FaLink /></a>
               </div>
