@@ -10,7 +10,8 @@ const FALLBACK_DATA = [
   // 3 Web projects
   {
     id: "web-1",
-    title: "TheBlessed Fields Dispatch and Trucking",
+    title: "Senior System Engineer",
+    company: "TheBlessed Fields Dispatch and Trucking",
     type: "web",
     year: 2024,
     short: "Logistics tracking and data monitoring for a local farm-to-table produce supplier.",
@@ -22,7 +23,8 @@ const FALLBACK_DATA = [
   },
   {
     id: "web-2",
-    title: "BusyHands Global LLC",
+    title: "System Architect",
+    company: "BusyHands Global LLC",
     type: "web",
     year: 2025,
     short: "Freight & logistics brokerage for the admin of the business data monitoring.",
@@ -34,7 +36,8 @@ const FALLBACK_DATA = [
   },
   {
     id: "web-3",
-    title: "Research Assistant to a Graduate and Teaching Assistant (Wichita State University)",
+    title: "Research Assistant to a Graduate and Teaching Assistant",
+    company: "Wichita State University",
     type: "research",
     year: 2023,
     short: "Generated and Analyzed Data from Survey ",
@@ -139,6 +142,7 @@ export default function Portfolio() {
                   </div>
 
                   <h3 className="card-title">{w.title}</h3>
+                  <h5 className="card-company">{w.company}</h5>
                   <p className="card-short">{w.short}</p>
 
                   <div className="card-tags">
@@ -168,6 +172,7 @@ export default function Portfolio() {
                 <div className="modal-media" style={{backgroundImage:`url(${active.image})`}} />
                 <div className="modal-body">
                   <h3>{active.title}</h3>
+                  <h5 className="modal-company">{active.company}</h5>
                   <div className="modal-meta">
                     <span>{active.type === "web" ? "Website" : "Research Paper"}</span>
                     <span> • {active.year}</span>

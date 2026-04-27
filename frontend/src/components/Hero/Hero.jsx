@@ -115,8 +115,7 @@ export default function Hero() {
           </h1>
 
           <p className="hero-desc">
-            I build useful digital systems, analyze research data, and create web
-            solutions that help ideas become clear, practical, and impactful.
+            I focus on building data-driven systems that connect research, data presentation, and digital infrastructure. My background combines data analysis, backend development, and system design, allowing me to create solutions that improve efficiency and support better decision-making.
           </p>
 
           <div className="hero-actions">

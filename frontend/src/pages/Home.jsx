@@ -6,6 +6,9 @@ import Portfolio from '../components/Portfolio/Portfolio'
 import Request from '../components/Request/Request'
 import Reviews from '../components/Reviews/Reviews'
 import Contact from '../components/Contact/Contact'
+import Analytics from '../components/Analytics/Analytics'
+import Resume from '../components/Resume/Resume'
+
 
 const Home = () => {
   return (
@@ -13,8 +16,10 @@ const Home = () => {
       <Hero />
       <About />
       <Services />
+      <Analytics />
       <Request />
       <Portfolio />
+      <Resume />
       <Reviews />
       <Contact />
     </div>

@@ -185,7 +185,7 @@
 }
 
 /* Mobile Styles */
-@media (max-width: 768px) {
+@media (max-width: 960px) {
   .nav-links {
     position: absolute;
     top: 100%;

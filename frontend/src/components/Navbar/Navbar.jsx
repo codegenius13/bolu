@@ -35,8 +35,10 @@ const Navbar = () => {
         <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
           <li onClick={() => handleScroll("about")}>About</li>
           <li onClick={() => handleScroll("services")}>Services</li>
+          <li onClick={() => handleScroll("analytics")}>Analytics</li>
           <li onClick={() => handleScroll("requests")}>JobRequests</li>
           <li onClick={() => handleScroll("work")}>Portfolio</li>
+          <li onClick={() => handleScroll("resume")}>Resume</li>
           <li onClick={() => handleScroll("reviews")}>Reviews</li>
           <li onClick={() => handleScroll("contact")}>Contact</li>
         </ul>

@@ -36,7 +36,7 @@ const Footer = () => {
       </div>
 
       <div className="footer-bottom">
-        © {new Date().getFullYear()} Bolu Ikuerowo. All rights reserved.
+        © {new Date().getFullYear()} Bolu Ikuerowo. All rights reserved &reg;.
       </div>
     </footer>
   );
