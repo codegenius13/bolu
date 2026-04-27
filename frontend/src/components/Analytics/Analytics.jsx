@@ -163,7 +163,7 @@ const CURRENT_YEAR = 2026;
 // const CURRENT_YEAR = new Date().getFullYear();
 
 const currentDate = new Date();
-const currentMonthIndex = currentDate.getMonth(); 
+const currentMonthIndex = currentDate.getMonth();
 // Jan = 0, Apr = 3, Dec = 11
 
 const rangeOptions = [
@@ -196,36 +196,78 @@ function maxField(data, key) {
   return Math.max(...data.map((item) => Number(item[key] || 0)));
 }
 
+function addTrend(data, key) {
+  return data.map((item, index) => {
+    if (index === 0) {
+      return { ...item, trend: "•" };
+    }
+
+    const prev = data[index - 1][key];
+    const current = item[key];
+
+    let trend = "•";
+
+    if (current > prev) trend = "↑";
+    else if (current < prev) trend = "↓";
+
+    return { ...item, trend };
+  });
+}
+
 function Analytics() {
   const [activeView, setActiveView] = useState("all");
   const [activeRange, setActiveRange] = useState(12);
 
-const filteredData = useMemo(() => {
-  // Only months already reached this year
-  const availableMonths = analyticsData.slice(0, currentMonthIndex + 1);
+  const filteredData = useMemo(() => {
+    // Only months already reached this year
+    const availableMonths = analyticsData.slice(0, currentMonthIndex + 1);
 
-  if (activeRange === 6) {
-    // Jan-Jun
-    if (currentMonthIndex <= 5) {
-      return availableMonths;
+    if (activeRange === 6) {
+      // Jan-Jun
+      if (currentMonthIndex <= 5) {
+        return availableMonths;
+      }
+
+      // Jul-Dec
+      return analyticsData.slice(6, currentMonthIndex + 1);
     }
 
-    // Jul-Dec
-    return analyticsData.slice(6, currentMonthIndex + 1);
-  }
+    // 12 months = Jan till current month
+    return availableMonths;
+  }, [activeRange]);
 
-  // 12 months = Jan till current month
-  return availableMonths;
-}, [activeRange]);
+  const trendData = useMemo(() => {
+    return addTrend(filteredData, "portfolioVisits");
+  }, [filteredData]);
 
   const jobStats = useMemo(() => {
     const totalInquiries = sumField(filteredData, "inquiries");
     const totalQualified = sumField(filteredData, "qualifiedLeads");
     const totalCalls = sumField(filteredData, "callsBooked");
     const totalWins = sumField(filteredData, "projectsWon");
-    const bestMonth = filteredData.reduce((best, item) =>
-      item.projectsWon > best.projectsWon ? item : best
-    , filteredData[0]);
+    const bestMonth = filteredData.reduce((best, item) => {
+      const bestScore =
+        best.inquiries +
+        best.qualifiedLeads +
+        best.callsBooked +
+        best.projectsWon +
+        best.githubCommits +
+        best.portfolioVisits +
+        best.linkedinGrowth +
+        best.toolUsage;
+
+      const itemScore =
+        item.inquiries +
+        item.qualifiedLeads +
+        item.callsBooked +
+        item.projectsWon +
+        item.githubCommits +
+        item.portfolioVisits +
+        item.linkedinGrowth +
+        item.toolUsage;
+
+      return itemScore > bestScore ? item : best;
+    }, filteredData[0]);
 
     return {
       totalInquiries,
@@ -246,6 +288,8 @@ const filteredData = useMemo(() => {
     const linkedIn = sumField(filteredData, "linkedinGrowth");
     const toolUse = sumField(filteredData, "toolUsage");
 
+
+
     return {
       commits,
       visits,
@@ -253,8 +297,8 @@ const filteredData = useMemo(() => {
       toolUse,
       peakCommits: maxField(filteredData, "githubCommits"),
       avgVisits:
-        filteredData.length > 0
-          ? Math.round(visits / filteredData.length)
+        visits > 0
+          ? (visits / filteredData.length).toFixed(1)
           : 0,
     };
   }, [filteredData]);
@@ -283,7 +327,7 @@ const filteredData = useMemo(() => {
   };
 
   return (
-    <section className="analytics-section" id="work-analytics">
+    <section className="analytics-section" id="analytics">
       <motion.div
         className="analytics-shell"
         variants={motionWrap}
@@ -378,7 +422,12 @@ const filteredData = useMemo(() => {
                   <ResponsiveContainer width="100%" height={340}>
                     <LineChart data={filteredData}>
                       <CartesianGrid strokeDasharray="4 4" />
-                      <XAxis dataKey="month" />
+                      <XAxis
+                        dataKey="month"
+                        tickFormatter={(value, index) =>
+                          `${trendData[index]?.month || value} ${trendData[index]?.trend || ""}`
+                        }
+                      />
                       <YAxis />
                       <Tooltip content={<TooltipContent />} />
                       <Legend />
@@ -422,16 +471,6 @@ const filteredData = useMemo(() => {
                   </ResponsiveContainer>
                 </div>
 
-                <div className="card-footer">
-                  <div>
-                    <span>Best month</span>
-                    <strong>{jobStats.bestMonth}</strong>
-                  </div>
-                  <div>
-                    <span>Total Conversions</span>
-                    <strong>{jobStats.totalWins}</strong>
-                  </div>
-                </div>
               </MotionCard>
             )}
           </AnimatePresence>
@@ -482,7 +521,7 @@ const filteredData = useMemo(() => {
 
                 <div className="chart-box chart-box--stacked">
                   <ResponsiveContainer width="100%" height={340}>
-                    <AreaChart data={filteredData}>
+                    <AreaChart data={trendData}>
                       <defs>
                         <linearGradient id="growthA" x1="0" y1="0" x2="0" y2="1">
                           <stop offset="5%" stopColor="var(--accent-color)" stopOpacity={0.35} />
@@ -561,6 +600,14 @@ const filteredData = useMemo(() => {
                   <div>
                     <span>Peak commits in a month</span>
                     <strong>{growthStats.peakCommits}</strong>
+                  </div>
+                  <div>
+                    <span>Best month</span>
+                    <strong>{jobStats.bestMonth}</strong>
+                  </div>
+                  <div>
+                    <span>Total Conversions</span>
+                    <strong>{jobStats.totalWins}</strong>
                   </div>
                 </div>
               </MotionCard>

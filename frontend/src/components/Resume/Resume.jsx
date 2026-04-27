@@ -359,7 +359,7 @@ function Resume() {
             <span className="section-kicker">Resume Download</span>
             <h2>Generate a clean one-page resume from my live portfolio</h2>
             <p>
-              Click the button to export a PDF that captures your key info, skills, and experience based on the content of your portfolio page. The PDF is designed for easy manual updates and includes data markers for better extraction.
+              Click the button to export a PDF that captures my key info, skills, and experience based on the content on my portfolio page. The PDF is designed for easy manual updates and includes data markers for better extraction.
             </p>
           </div>
 

@@ -1,5 +1,5 @@
 import "./Footer.css";
-import { FaWhatsapp, FaLinkedinIn } from "react-icons/fa";
+import { FaWhatsapp, FaLinkedinIn, FaGithub } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -31,6 +31,15 @@ const Footer = () => {
             aria-label="LinkedIn"
           >
             <FaLinkedinIn />
+          </a>
+
+          <a
+            href="https://github.com/codegenius13"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="GitHub"
+          >
+            <FaGithub />
           </a>
         </div>
       </div>

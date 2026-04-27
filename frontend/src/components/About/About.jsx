@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./About.css";
-import { FaEnvelope, FaLink, FaLinkedin  } from "react-icons/fa";
+import { FaEnvelope, FaGithub, FaLink, FaLinkedin  } from "react-icons/fa";
 import { FaSquareUpwork } from "react-icons/fa6";
 
 export default function About() {
@@ -157,6 +157,10 @@ export default function About() {
               <a href="mailto:ikuerowob@gmail.com" target="_blank" rel="noopener noreferrer">
                 <FaEnvelope size={20} style={{ verticalAlign: 'middle', marginRight: '6px' }} />
                 Email Referral
+              </a>
+              <a href="https://github.com/codegenius13" target="_blank" rel="noopener noreferrer">
+                <FaGithub size={20} style={{ verticalAlign: 'middle', marginRight: '6px' }} />
+                GitHub
               </a>
             </div>
           </div>
