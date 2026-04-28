@@ -66,13 +66,13 @@ export default function About() {
           <h2 id="about-title">About Me</h2>
 
           <p className="about-leading">
-            I'm Bolu Ikuerowo — I focus on building data-driven systems that connect research, data presentation, and digital infrastructure. My background combines data analysis, backend development, and system design, allowing me to create solutions that improve efficiency and support better decision-making.
+            I'm Bolu Ikuerowo — <span className="cv-highlight"> I have interest in building digital tools that make analysis, presentation and research more flexible. I'm very much a continous learner and generally easy to work with. I love to think I can be a good addition to any team, and I take pride in my work for others and myself.</span>
           </p>
 
           <div className="about-text">
             <p>
               I take remote and contract work via LinkedIn and also
-              work directly with small businesses and institutions.
+              work directly with small businesses within my connection.
             </p>
 
             <div className="project-highlight">
@@ -86,7 +86,7 @@ export default function About() {
               <div className="project-info">
                 <h4>Infralytix</h4>
                 <p>
-                  I am currently developing <strong>Infralytix</strong> — a web-based tool that simplifies research data analysis and report generation. It provides an intuitive interface for datasets uploads, perform simulated visualizations on the basis of standard research, and generate comprehensive reports without needing advanced coding skills.
+                  I am currently developing <strong>Infralytix</strong> — a web-based tool that simplifies research, data analysis and report generation. It can perform simulated visualizations on the basis of proven research. The idea is to help researchers, students, and professionals quickly generate insights and visualizations from data without needing complex software.
                 </p>
                 <a href="" target="_blank">View Site <FaLink /></a>
               </div>
@@ -146,8 +146,7 @@ export default function About() {
             <h5>Where I get work</h5>
             <p className="small">
               Most requests come from LinkedIn, plus direct referrals
-              and institutional collaborations. I keep profiles up to date and
-              favor clear proposals and deliverables.
+              within my connection. I keep portfolio and profiles up to date.
             </p>
             <div className="source-links">
               <a href="https://www.linkedin.com/in/boluwatife-ikuerowo-80490226b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer">

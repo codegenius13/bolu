@@ -15,7 +15,7 @@ const fallbackResume = {
   location: "Lagos, Nigeria",
   photoSrc: "",
   summary:
-    "I focus on building data-driven systems that connect research, data presentation, and digital platforms. My background combines data analysis, backend development, and system design, allowing me to create solutions that improve efficiency and support better decision-making.",
+    "I have interest in building digital tools that make analysis, presentation and research more flexible. I'm very much a continous learner and generally easy to work with. I love to think I can be a good addition to any team, and I take pride in my work for others and myself.",
   skills: [
     "Research & Analysis",
     "Digital Infrastructure",
@@ -202,27 +202,21 @@ function collectSkills() {
 }
 
 function collectSummary() {
-  const heroRoot = getRoot(["#hero", ".hero-section", "[data-section='hero']"]);
+  const heroRoot = getRoot(["#about", ".about-section", "[data-section='about']"]);
   const aboutRoot = getRoot(["#about", ".about-section", "[data-section='about']"]);
 
   const summary =
     firstText(
       [
         "[data-resume-summary]",
-        ".hero p",
-        ".hero .description",
-        ".about p",
-        ".about .description",
+        ".cv-highlight",
       ],
       heroRoot
     ) ||
     firstText(
       [
         "[data-resume-summary]",
-        ".about p",
-        ".about .description",
-        ".hero p",
-        ".hero .description",
+        ".cv-highlight",
       ],
       aboutRoot
     );
@@ -359,7 +353,7 @@ function Resume() {
             <span className="section-kicker">Resume Download</span>
             <h2>Generate a clean one-page resume from my live portfolio</h2>
             <p>
-              Click the button to export a PDF that captures my key info, skills, and experience based on the content on my portfolio page. The PDF is designed for easy manual updates and includes data markers for better extraction.
+              You can click the button to export my key info, skills, and experiences on my portfolio page.
             </p>
           </div>
 

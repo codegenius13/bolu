@@ -90,7 +90,7 @@ export default function Contact() {
         <div className="contact-info">
           <h2>Let’s Work Together</h2>
           <p>
-            Have a project, research collaboration, or job request?
+            I'm always open to discussing new projects or opportunities to be part of your vision
             <br />
             Send a message and I’ll respond promptly.
           </p>
@@ -103,7 +103,7 @@ export default function Contact() {
 
             <div>
               <span>Availability:</span>
-              <strong>Open for projects & research</strong>
+              <strong>Always Open</strong>
             </div>
           </div>
         </div>

@@ -62,7 +62,7 @@ const analyticsData = [
     qualifiedLeads: 2,
     callsBooked: 1,
     projectsWon: 0,
-    githubCommits: 25,
+    githubCommits: 31,
     portfolioVisits: 7,
     linkedinGrowth: 15,
     toolUsage: 3,
@@ -390,7 +390,7 @@ function Analytics() {
                     <span className="card-kicker">Section 01</span>
                     <h3>Job Influx Rate</h3>
                     <p>
-                      Track requests, calls booked, and conversion rates over time.
+                      Track requests, calls booked, and job completion over time.
                     </p>
                   </div>
 
@@ -413,7 +413,7 @@ function Analytics() {
                     <strong>{jobStats.totalCalls}</strong>
                   </div>
                   <div className="metric-card">
-                    <span>Conversion Rate</span>
+                    <span>Completion (%)</span>
                     <strong>{jobStats.conversionRate}%</strong>
                   </div>
                 </div>
@@ -461,7 +461,7 @@ function Analytics() {
                       <Line
                         type="monotone"
                         dataKey="projectsWon"
-                        name="Conversions"
+                        name="Job Completions"
                         stroke="var(--success-color)"
                         strokeWidth={3}
                         dot={{ r: 3 }}
@@ -606,7 +606,7 @@ function Analytics() {
                     <strong>{jobStats.bestMonth}</strong>
                   </div>
                   <div>
-                    <span>Total Conversions</span>
+                    <span>Total Job Completed</span>
                     <strong>{jobStats.totalWins}</strong>
                   </div>
                 </div>

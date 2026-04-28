@@ -52,8 +52,8 @@ const Navbar = () => {
         >
           {showBubble && (
             <div className="speech-bubble">
-              <span>Send job request</span>
-              <small>or contact me</small>
+              <span>Available for discussions</span>
+              <small>Thank you</small>
             </div>
           )}
 

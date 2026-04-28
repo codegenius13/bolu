@@ -115,7 +115,9 @@ export default function Hero() {
           </h1>
 
           <p className="hero-desc">
-            I focus on building data-driven systems that connect research, data presentation, and digital infrastructure. My background combines data analysis, backend development, and system design, allowing me to create solutions that improve efficiency and support better decision-making.
+            Welcome to my portfolio!
+            <br />
+            I've been coding for a while and I'm very much a continous learner in my field of focus, something that is visible on my portfolio and LinkedIn. I'm passionate and generally easy to work with. I'd love for you to check out my portfolio and see some of the work I've done.
           </p>
 
           <div className="hero-actions">
@@ -134,7 +136,7 @@ export default function Hero() {
             </div>
             <div className="proof-card">
               <strong>Development</strong>
-              <span>Modern websites, dashboards, and app systems</span>
+              <span>Modern websites and dashboards</span>
             </div>
             <div className="proof-card">
               <strong>Infrastructure</strong>
@@ -182,8 +184,9 @@ export default function Hero() {
                 transition={{ duration: 0.35 }}
               >
                 <span className="speech-label">Speaking</span>
-                <strong>Send a job request</strong>
-                <span>or contact me for research and digital solutions.</span>
+                <strong>If you like what you see</strong>
+                <span> I'm very much available for further discussions.</span>
+                <span className="speech-emoji">Thank you!</span>
                 <i className="speech-tail" />
               </motion.div>
 

@@ -8,22 +8,22 @@ export default function Services() {
   const services = [
     {
       icon: <FaBrain />,
-      title: "Research Data Analysis",
-      desc: "Research paper analysis, data processing, and insight extraction."
+      title: "Research & Data",
+      desc: "Research paper analysis, data processing and presentation."
     },
     {
       icon: <FaLaptopCode />,
-      title: "Full-Stack Development",
+      title: "Digital Solutions",
       desc: "MERN applications, APIs, dashboards, and scalable backend systems."
     },
     {
       icon: <PiTestTubeFill />,
       title: "Laboratory & Research",
-      desc: "Result analysis, documentation, QC workflows, and digital noting."
+      desc: "Result analysis, documentation and QC workflows."
     },
     {
       icon: <GiArchiveResearch />,
-      title: "Research & Tech",
+      title: "Writing & Tech",
       desc: "Writing with digital tools (Zotero, Grammarly etc.) and technical documentation."
     }
   ];

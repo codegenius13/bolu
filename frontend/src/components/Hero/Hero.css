@@ -325,10 +325,10 @@
   margin-bottom: 6px;
 }
 
-.portrait-speech span:last-of-type {
+.portrait-speech span {
   display: block;
   font-size: 0.96rem;
-  line-height: 1.55;
+  line-height: 1.5;
   color: rgba(36, 22, 0, 0.9);
 }
 
