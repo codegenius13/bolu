@@ -158,6 +158,13 @@ button {
     -webkit-appearance: none;
     appearance: none;
     border-radius: 5px !important;
+    transition: var(--transition);
+}
+
+select:focus,
+input:focus,
+textarea:focus {
+    outline: 1px solid var(--primary-color);
 }
 
 h1 {

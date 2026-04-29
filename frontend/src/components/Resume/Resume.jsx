@@ -275,7 +275,7 @@ function Resume() {
   const templateRef = useRef(null);
   const [resumeData, setResumeData] = useState(fallbackResume);
   const [isExporting, setIsExporting] = useState(false);
-  const [status, setStatus] = useState("Ready to generate your resume PDF.");
+  const [status, setStatus] = useState("Ready to generate resume PDF.");
 
   useEffect(() => {
     const exportPdf = async () => {

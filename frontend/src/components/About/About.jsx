@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "./About.css";
 import { FaEnvelope, FaGithub, FaLink, FaLinkedin  } from "react-icons/fa";
 import { FaSquareUpwork } from "react-icons/fa6";
+import infralytix from "../../assets/img/infralytix.png";
 
 export default function About() {
   const [inView, setInView] = useState(false);
@@ -78,7 +79,7 @@ export default function About() {
             <div className="project-highlight">
               <div className="project-image">
                 <img
-                  src=""
+                  src={infralytix}
                   alt="research data analysis and generator interface"
                 />
               </div>
@@ -88,7 +89,7 @@ export default function About() {
                 <p>
                   I am currently developing <strong>Infralytix</strong> — a web-based tool that simplifies research, data analysis and report generation. It can perform simulated visualizations on the basis of proven research. The idea is to help researchers, students, and professionals quickly generate insights and visualizations from data without needing complex software.
                 </p>
-                <a href="" target="_blank">View Site <FaLink /></a>
+                <a href="https://infralytix.onrender.com" target="_blank">View Site <FaLink /></a>
               </div>
             </div>
             <div className="about-cta">
