@@ -117,7 +117,7 @@ export default function Hero() {
           <p className="hero-desc">
             Welcome to my portfolio!
             <br />
-            I've been coding for a while and I'm very much a continous learner in my field of focus, something that is visible on my portfolio and LinkedIn. I'm passionate and generally easy to work with. I'd love for you to check out my portfolio and see some of the work I've done.
+            I've been developing myself for a while and I'm very much a continous learner in my field of focus, something that is visible on my portfolio and LinkedIn. I'm passionate and generally easy to work with. I'd love for you to check out my portfolio and see some of the work I've done.
           </p>
 
           <div className="hero-actions">
