@@ -69,14 +69,14 @@ const analyticsData = [
   },
   {
     month: "May",
-    inquiries: 0,
+    inquiries: 1,
     qualifiedLeads: 0,
     callsBooked: 0,
     projectsWon: 0,
-    githubCommits: 0,
-    portfolioVisits: 0,
-    linkedinGrowth: 0,
-    toolUsage: 0,
+    githubCommits: 3,
+    portfolioVisits: 5,
+    linkedinGrowth: 7,
+    toolUsage: 2,
   },
   {
     month: "Jun",
@@ -288,8 +288,6 @@ function Analytics() {
     const linkedIn = sumField(filteredData, "linkedinGrowth");
     const toolUse = sumField(filteredData, "toolUsage");
 
-
-
     return {
       commits,
       visits,
@@ -298,7 +296,7 @@ function Analytics() {
       peakCommits: maxField(filteredData, "githubCommits"),
       avgVisits:
         visits > 0
-          ? (visits / filteredData.length).toFixed(1)
+          ? Math.round(visits / filteredData.length)
           : 0,
     };
   }, [filteredData]);
