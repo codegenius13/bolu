@@ -309,12 +309,13 @@
     max-width: 500px;
     color: rgba(17, 24, 39, 0.82);
     line-height: 1.55;
+    font-size: 12px;
 }
 
 .resume-paper__photo {
     width: 116px;
     height: 116px;
-    border-radius: 50%;
+    border-radius: 20px;
     overflow: hidden;
     flex-shrink: 0;
     border: 2px solid var(--primary-color);
@@ -324,7 +325,7 @@
 .resume-paper__photo img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .photo-fallback {
@@ -436,11 +437,37 @@
     color: rgba(17, 24, 39, 0.84);
 }
 
+.paper-education-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.paper-education h4 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
 .paper-grade {
     display: flex;
     justify-content: space-between;
-    gap: 20px;
-    margin-top: 15px;
+    align-items: center;
+    margin-top: 4px;
+    color: #666;
+}
+
+.paper-certification-list {
+    margin: 0;
+    padding-left: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.paper-certification-list li {
+    line-height: 1.5;
 }
 
 .resume-paper__footer {
@@ -452,6 +479,53 @@
     font-size: 0.84rem;
     color: rgba(17, 24, 39, 0.64);
 }
+
+.paper-publication-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.paper-publication {
+    border-left: 3px solid rgba(0, 0, 0, 0.12);
+    padding-left: 10px;
+}
+
+.paper-publication h4 {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.45;
+    font-weight: 700;
+}
+
+.publication-meta {
+    margin: 4px 0;
+    font-size: 11px;
+    color: #555;
+}
+
+.publication-venue {
+    margin: 0;
+    font-size: 11px;
+    line-height: 1.5;
+    color: #666;
+}
+
+.publication-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 6px;
+}
+
+.publication-link {
+    font-size: 11px;
+    font-weight: 600;
+    text-decoration: underline;
+    color: var(--secondary-color);
+    cursor: pointer;
+}
+
 
 /* Responsive */
 @media (max-width: 992px) {

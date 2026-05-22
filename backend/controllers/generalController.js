@@ -268,9 +268,12 @@ export const createReview = async (req, res) => {
     }
 
     const request = await Request.findOne({
-      jobTitle: { $regex: new RegExp(`^${jobTitleInput}$`, "i") },
-    });
-
+      jobTitle: {
+        $regex: `^${jobTitleInput.trim()}$`,
+        $options: "i",
+      },
+    });  
+ 
     if (!request) {
       return res.status(400).json({
         success: false,
@@ -303,7 +306,7 @@ export const createReview = async (req, res) => {
       data: newReview,
     });
   } catch (error) {
-    console.error(error);
+    console.error("Create Review Error:", error);
 
     res.status(500).json({
       success: false,

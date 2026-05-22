@@ -14,7 +14,15 @@ const fallbackResume = {
   website: "https://bolu.onrender.com",
   location: "Lagos, Nigeria",
   photoSrc: "",
-  education: "Olusegun Agagu University of Science and Technology",
+  education: [
+    {
+      school:
+        "Olusegun Agagu University of Science and Technology",
+      course: "BSc. Biochemistry",
+      grade: "Second Class Upper Division",
+      year: "2025",
+    },
+  ],
   summary:
     "I have interest in building digital tools that make analysis, presentation and research more flexible. I'm very much a continous learner and generally easy to work with. I love to think I can be a good addition to any team, and I take pride in my work for others and myself.",
   skills: [
@@ -41,6 +49,29 @@ const fallbackResume = {
       description:
         "Projects and website sections that show research thinking, design sense, and digital problem solving.",
       tech: ["MERN", "Node.js", "Express", "MongoDB"],
+    },
+  ],
+  publications: [
+    {
+      title:
+        "AI Driven and Cloud-Based Integration of Agricultural Supply Chains for the Innovative Development of Sustainable Models and Educational Tools",
+      type: "Conference Paper",
+      status: "Presented",
+      venue:
+        "12th ICSAE-XII Conference, Udayana University, Bali, Indonesia",
+      year: "2025",
+      certificateLink:
+        "https://drive.google.com/file/d/1FP9AqSYnUJcRmv-KrwphBrerjDL5SyM3/view?usp=drive_link",
+    },
+
+    {
+      title:
+        "In vitro polyphenol content and antioxidant properties of Corchorus olitorius stored at 4 °C for 3, 6, and 9 days",
+      type: "Journal Article",
+      status: "Under Review",
+      venue:
+        "Journal of Bioscience and Biotechnology",
+      year: "2026",
     },
   ],
 };
@@ -192,11 +223,11 @@ function collectSkills() {
       keywords: ["research", "analysis", "analytics", "data", "report", "insight"],
     },
     {
-      label: "Digital Infrastructure",
+      label: "Fullstack Development",
       keywords: ["infrastructure", "deployment", "server", "database", "api", "cloud"],
     },
     {
-      label: "Data Presentation",
+      label: "Data Generation & Presentation",
       keywords: ["presentation", "visualization", "dashboard", "reporting", "charts", "graphs"],
     },
   ];
@@ -262,19 +293,29 @@ function buildResumeData() {
     role,
     email: contact.email || fallbackResume.email,
     phone: contact.phone || fallbackResume.phone,
-    whatsapp: socials.whatsapp || contact.phone || fallbackResume.whatsapp,
-    linkedin: socials.linkedin || fallbackResume.linkedin,
-    website: socials.website || fallbackResume.website,
-    photoSrc: photoSrc || fallbackResume.photoSrc,
+    whatsapp:
+      socials.whatsapp ||
+      contact.phone ||
+      fallbackResume.whatsapp,
+    linkedin:
+      socials.linkedin || fallbackResume.linkedin,
+    website:
+      socials.website || fallbackResume.website,
+    photoSrc:
+      photoSrc || fallbackResume.photoSrc,
     summary,
     skills,
-    education,
-    experience: experience.length > 0 ? experience : fallbackResume.experience,
-    certifications: [
-      "Jobberman Soft Skill Training",
-      "Introduction to Programming Using JavaScript",
-      "ICSAE-XII Conference Certificate"
-    ],
+    education:
+      fallbackResume.education,
+    experience:
+      experience.length > 0
+        ? experience
+        : fallbackResume.experience,
+    certifications:
+      fallbackResume.certifications,
+    publications:
+      fallbackResume.publications,
+
   };
 }
 
@@ -494,7 +535,7 @@ function Resume() {
                     <strong>LinkedIn:</strong> {resumeData.linkedin}
                   </li>
                   <li>
-                    <strong>Website:</strong> {resumeData.website}
+                    <strong>Portfolio:</strong> {resumeData.website}
                   </li>
                 </ul>
               </section>
@@ -510,12 +551,30 @@ function Resume() {
 
               <section className="paper-block">
                 <h3>Education</h3>
-                <p>{resumeData.education}</p>
-                <div className="paper-grade">
-                  <strong><small>Second Class Upper Division</small></strong>
-                  <small>2025</small>
+
+                <div className="paper-education-list">
+                  {resumeData.education?.map(
+                    (edu, index) => (
+                      <article
+                        key={`${edu.school}-${index}`}
+                        className="paper-education"
+                      >
+                        <h4>{edu.school}</h4>
+                        <p>{edu.course}</p>
+
+                        <div className="paper-grade">
+                          <strong>
+                            <small>{edu.grade}</small>
+                          </strong>
+
+                          <small>{edu.year}</small>
+                        </div>
+                      </article>
+                    )
+                  )}
                 </div>
               </section>
+
             </aside>
 
             <main className="resume-paper__right">
@@ -542,13 +601,62 @@ function Resume() {
               </section>
 
               <section className="paper-block paper-block--summary">
-                <h3>Certifcations</h3>
-                {resumeData.certifications.map((certifications) => (
-                    <p key={certifications}>{certifications}</p>
-                  ))}
+                <h3>Certifications</h3>
+
+                <ul className="paper-certification-list">
+                  {resumeData.certifications?.map(
+                    (cert, index) => (
+                      <li key={`${cert}-${index}`}>
+                        {cert}
+                      </li>
+                    )
+                  )}
+                </ul>
               </section>
             </main>
           </div>
+
+          <section className="paper-block">
+            <h3>Publications</h3>
+
+            <div className="paper-publication-list">
+              {resumeData.publications?.map(
+                (pub, index) => (
+                  <article
+                    key={`${pub.title}-${index}`}
+                    className="paper-publication"
+                  >
+                    <h4>{pub.title}</h4>
+
+                    <p className="publication-meta">
+                      <strong>{pub.type}</strong>
+                      {" • "}
+                      {pub.status}
+                    </p>
+
+                    <p className="publication-venue">
+                      {pub.venue}
+                    </p>
+
+                    <div className="publication-footer">
+                      <small>{pub.year}</small>
+
+                      {pub.certificateLink && (
+                        <a
+                          href={pub.certificateLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="publication-link"
+                        >
+                          View Certificate
+                        </a>
+                      )}
+                    </div>
+                  </article>
+                )
+              )}
+            </div>
+          </section>
         </div>
       </div>
     </section>

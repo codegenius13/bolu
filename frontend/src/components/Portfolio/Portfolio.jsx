@@ -14,7 +14,7 @@ const FALLBACK_DATA = [
     company: "TheBlessed Fields Dispatch and Trucking",
     type: "web",
     year: 2024,
-    short: "Logistics applications and monitoring for the business admin.",
+    short: "Logistics application forms submission  for drivers, owner operators, and customers request. Monitoring for the business admin.",
     long:
       "Case study: Built a logistics system for drivers, owner operators, and customers request. Used React, Node.js, and Mapbox APIs.",
     image: port01,
@@ -27,7 +27,7 @@ const FALLBACK_DATA = [
     company: "BusyHands Global LLC",
     type: "web",
     year: 2025,
-    short: "Freight & logistics brokerage for the admin of the business data monitoring.",
+    short: "Freight backend data analysis and logistics brokerage services for the admin of the business.",
     long:
       "Case study: Freight brokerage UI with driver/carrier details, tracking, and secure load posting. Built re-usable components and a design system.",
     image: port02,
@@ -40,11 +40,11 @@ const FALLBACK_DATA = [
     company: "Wichita State University",
     type: "research",
     year: 2023,
-    short: "Generated and Analyzed Data from Survey ",
+    short: "Generated, analyzed, and presented data from survey ",
     long:
       "Case study: Providing Digital and Calculated Solutions to Logistics in Industrial Engineering",
     image: port03,
-    tags: ["Research", "Data Analysis", "Technical Writing"],
+    tags: ["Research", "Data Analysis", "Technical Writing", "Survey", "Presentation"],
   },
 ];
 

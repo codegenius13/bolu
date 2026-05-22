@@ -3,7 +3,10 @@ import "./Reviews.css";
 import { useNotification } from "../../context/NotificationContext/NotificationContext";
 
 const REVIEWS_PER_PAGE = 2;
-const API_BASE = "https://bolu-backend.onrender.com/api/general";
+const API_BASE =
+  import.meta.env.MODE === "development"
+    ? "http://localhost:5000/api/general"
+    : "https://bolu-backend.onrender.com/api/general";
 
 export default function Reviews() {
   const { showNotification } = useNotification();
@@ -58,32 +61,37 @@ export default function Reviews() {
      FETCH REVIEWS
   ========================= */
   const fetchReviews = useCallback(
-    async (pageNumber = page) => {
-      try {
-        setLoadingReviews(true);
+  async (pageNumber = 1) => {
+    try {
+      setLoadingReviews(true);
 
-        const res = await fetch(
-          `${API_BASE}/reviews?page=${pageNumber}&limit=${REVIEWS_PER_PAGE}`
-        );
-        const data = await res.json();
+      const res = await fetch(
+        `${API_BASE}/reviews?page=${pageNumber}&limit=${REVIEWS_PER_PAGE}`
+      );
 
-        if (!res.ok) throw new Error(data.message);
+      const data = await res.json();
 
-        setReviews(data.data);
-        setPages(data.meta.pages);
-        setPage(data.meta.page);
-      } catch (err) {
-        showNotification({
-          type: "error",
-          title: "Failed to Fetch Reviews",
-          message: err.message || "Could not load reviews",
-        });
-      } finally {
-        setLoadingReviews(false);
+      if (!res.ok) {
+        throw new Error(data.message);
       }
-    },
-    [page, showNotification]
-  );
+
+      setReviews(data.data || []);
+      setPages(data.meta?.pages || 1);
+      setPage(data.meta?.page || 1);
+    } catch (err) {
+      console.error(err);
+
+      showNotification({
+        type: "error",
+        title: "Failed to Fetch Reviews",
+        message: err.message || "Could not load reviews",
+      });
+    } finally {
+      setLoadingReviews(false);
+    }
+  },
+  [showNotification]
+);
 
   useEffect(() => {
     fetchReviews();
@@ -132,8 +140,8 @@ export default function Reviews() {
   const isRatingValid = Boolean(formData.rating);
 
   const isJobValid = jobSuggestions.some(
-  (job) => job.toLowerCase().trim() === formData.jobTitleInput.toLowerCase().trim()
-);
+    (job) => job.toLowerCase().trim() === formData.jobTitleInput.toLowerCase().trim()
+  );
 
   const isFormValid =
     isNameValid && isCommentValid && isRatingValid && isJobValid;
@@ -161,13 +169,13 @@ export default function Reviews() {
       }
 
       if (!formData.rating) {
-  showNotification({
-    type: "error",
-    title: "Missing Rating",
-    message: "Please select a rating",
-  });
-  return;
-}
+        showNotification({
+          type: "error",
+          title: "Missing Rating",
+          message: "Please select a rating",
+        });
+        return;
+      }
 
       const res = await fetch(`${API_BASE}/reviews`, {
         method: "POST",
@@ -186,6 +194,14 @@ export default function Reviews() {
 
       setOpen(false);
       setImage(null);
+      setFormData({
+        name: "",
+        jobTitleInput: "",
+        rating: "",
+        comment: "",
+        dateOption: "recent",
+        customDate: "",
+      });
 
       fetchReviews(1);
     } catch (err) {
