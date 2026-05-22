@@ -19,7 +19,7 @@ const fallbackResume = {
       school:
         "Olusegun Agagu University of Science and Technology",
       course: "BSc. Biochemistry",
-      grade: "Second Class Upper Division",
+      grade: "Second Class Upper Division (4.44)",
       year: "2025",
     },
   ],
@@ -216,32 +216,87 @@ function collectExperience() {
 }
 
 function collectSkills() {
-  const pageText = document.body?.innerText?.toLowerCase?.() || "";
+  const pageText =
+    document.body?.innerText?.toLowerCase?.() || "";
 
   const buckets = [
     {
       label: "Research & Analysis",
-      keywords: ["research", "analysis", "analytics", "data", "report", "insight"],
+      keywords: [
+        "research",
+        "analysis",
+        "analytics",
+        "data",
+        "report",
+        "insight",
+      ],
     },
     {
       label: "Fullstack Development",
-      keywords: ["infrastructure", "deployment", "server", "database", "api", "cloud"],
+      keywords: [
+        "infrastructure",
+        "deployment",
+        "server",
+        "database",
+        "api",
+        "cloud",
+        "mern",
+        "mongodb",
+        "react",
+        "node",
+        "express",
+      ],
     },
     {
-      label: "Data Generation & Presentation",
-      keywords: ["presentation", "visualization", "dashboard", "reporting", "charts", "graphs"],
+      label: "Data Generation",
+      keywords: [
+        "data generation",
+        "experimental",
+        "sampling",
+        "analysis",
+      ],
+    },
+    {
+      label: "Data Presentation",
+      keywords: [
+        "presentation",
+        "visualization",
+        "dashboard",
+        "reporting",
+        "charts",
+        "graphs",
+      ],
     },
     {
       label: "Laboratory Skills",
-      keywords: ["spectrophotometry", "pcr", "centrifugation"],
+      keywords: [
+        "spectrophotometry",
+        "pcr",
+        "centrifugation",
+        "laboratory",
+        "microbiology",
+        "biochemistry",
+        "phlebotomy",
+        "chemical pathology",
+      ],
     },
   ];
 
-  const found = buckets
-    .filter((bucket) => bucket.keywords.some((keyword) => pageText.includes(keyword)))
+  const detectedSkills = buckets
+    .filter((bucket) =>
+      bucket.keywords.some((keyword) =>
+        pageText.includes(keyword)
+      )
+    )
     .map((bucket) => bucket.label);
 
-  return found.length > 0 ? found : fallbackResume.skills;
+  // Merge fallback + detected skills and remove duplicates
+  return [
+    ...new Set([
+      ...fallbackResume.skills,
+      ...detectedSkills,
+    ]),
+  ];
 }
 
 function collectSummary() {

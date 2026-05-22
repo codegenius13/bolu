@@ -67,7 +67,7 @@ export default function About() {
           <h2 id="about-title">About Me</h2>
 
           <p className="about-leading">
-            I'm Bolu Ikuerowo — <span className="cv-highlight"> I have interest in building digital tools that make analysis, presentation and research more flexible. I'm very much a continous learner and generally easy to work with. I love to think I can be a good addition to any team, and I take pride in my work for others and myself.</span>
+            I'm Bolu Ikuerowo — <span className="cv-highlight"> I have interest in building digital tools and making data analysis, presentation and research more flexible. I'm very much a continous learner and generally easy to work with. I love to think I can be a good addition to any team, and I take pride in my work for others and myself.</span>
           </p>
 
           <div className="about-text">
