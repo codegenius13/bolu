@@ -29,7 +29,8 @@ const fallbackResume = {
     "Research & Analysis",
     "Fullstack Development",
     "Data Generation",
-    "Data Presentation"
+    "Data Presentation",
+    "Laboratory Skills"
   ],
   highlights: [
     "Research synthesis and insight generation",
@@ -229,6 +230,10 @@ function collectSkills() {
     {
       label: "Data Generation & Presentation",
       keywords: ["presentation", "visualization", "dashboard", "reporting", "charts", "graphs"],
+    },
+    {
+      label: "Laboratory Skills",
+      keywords: ["spectrophotometry", "pcr", "centrifugation"],
     },
   ];
 
@@ -503,8 +508,8 @@ function Resume() {
           <header className="resume-paper__header">
             <div className="resume-paper__identity">
               <p className="resume-paper__eyebrow">Professional Resume</p>
-              <h1>{resumeData.name}</h1>
-              <h2>{resumeData.role}</h2>
+              <h3>{resumeData.name}</h3>
+              <h5>{resumeData.role}</h5>
               <p className="resume-paper__summary">{resumeData.summary}</p>
             </div>
 
@@ -574,7 +579,19 @@ function Resume() {
                   )}
                 </div>
               </section>
+              <section className="paper-block paper-block--summary">
+                <h3>Certifications</h3>
 
+                <ul className="paper-certification-list">
+                  {resumeData.certifications?.map(
+                    (cert, index) => (
+                      <li key={`${cert}-${index}`}>
+                        {cert}
+                      </li>
+                    )
+                  )}
+                </ul>
+              </section>
             </aside>
 
             <main className="resume-paper__right">
@@ -600,63 +617,48 @@ function Resume() {
                 </div>
               </section>
 
-              <section className="paper-block paper-block--summary">
-                <h3>Certifications</h3>
+              <section className="paper-block">
+                <h3>Publications</h3>
+                <div className="paper-publication-list">
+                  {resumeData.publications?.map(
+                    (pub, index) => (
+                      <article
+                        key={`${pub.title}-${index}`}
+                        className="paper-publication"
+                      >
+                        <h5>{pub.title}</h5>
 
-                <ul className="paper-certification-list">
-                  {resumeData.certifications?.map(
-                    (cert, index) => (
-                      <li key={`${cert}-${index}`}>
-                        {cert}
-                      </li>
+                        <p className="publication-meta">
+                          <strong>{pub.type}</strong>
+                          {" • "}
+                          {pub.status}
+                        </p>
+
+                        <small className="publication-venue">
+                          {pub.venue}
+                        </small>
+
+                        <div className="publication-footer">
+                          <small>{pub.year}</small>
+
+                          {pub.certificateLink && (
+                            <a
+                              href={pub.certificateLink}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="publication-link"
+                            >
+                              View Certificate
+                            </a>
+                          )}
+                        </div>
+                      </article>
                     )
                   )}
-                </ul>
+                </div>
               </section>
             </main>
           </div>
-
-          <section className="paper-block">
-            <h3>Publications</h3>
-
-            <div className="paper-publication-list">
-              {resumeData.publications?.map(
-                (pub, index) => (
-                  <article
-                    key={`${pub.title}-${index}`}
-                    className="paper-publication"
-                  >
-                    <h4>{pub.title}</h4>
-
-                    <p className="publication-meta">
-                      <strong>{pub.type}</strong>
-                      {" • "}
-                      {pub.status}
-                    </p>
-
-                    <p className="publication-venue">
-                      {pub.venue}
-                    </p>
-
-                    <div className="publication-footer">
-                      <small>{pub.year}</small>
-
-                      {pub.certificateLink && (
-                        <a
-                          href={pub.certificateLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="publication-link"
-                        >
-                          View Certificate
-                        </a>
-                      )}
-                    </div>
-                  </article>
-                )
-              )}
-            </div>
-          </section>
         </div>
       </div>
     </section>

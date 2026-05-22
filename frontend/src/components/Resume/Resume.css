@@ -288,17 +288,15 @@
     margin-bottom: 12px;
 }
 
-.resume-paper__identity h1 {
+.resume-paper__identity h3 {
     font-family: var(--font-heading);
-    font-size: 2.15rem;
     line-height: 1.1;
     margin-bottom: 8px;
     color: var(--dark-color);
 }
 
-.resume-paper__identity h2 {
+.resume-paper__identity h5 {
     font-family: var(--font-body);
-    font-size: 1rem;
     font-weight: 600;
     margin-bottom: 14px;
     color: var(--primary-color);
@@ -314,7 +312,7 @@
 
 .resume-paper__photo {
     width: 116px;
-    height: 116px;
+    height: 130px;
     border-radius: 20px;
     overflow: hidden;
     flex-shrink: 0;
