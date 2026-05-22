@@ -14,11 +14,11 @@ const FALLBACK_DATA = [
     company: "TheBlessed Fields Dispatch and Trucking",
     type: "web",
     year: 2024,
-    short: "Logistics tracking and data monitoring for a local farm-to-table produce supplier.",
+    short: "Logistics applications and monitoring for the business admin.",
     long:
-      "Case study: Built a logistics tracking dashboard genrating data providing with real-time map and driver details, plus a public-facing site for contact and ecommerce. Used React, Node.js, and Mapbox APIs.",
+      "Case study: Built a logistics system for drivers, owner operators, and customers request. Used React, Node.js, and Mapbox APIs.",
     image: port01,
-    tags: ["Logistics Tracking", "Maps", "Ecommerce", "Research"],
+    tags: ["Logistics Application", "Request", "Career"],
     liveUrl: "https://www.theblessedfields.com",
   },
   {
@@ -29,7 +29,7 @@ const FALLBACK_DATA = [
     year: 2025,
     short: "Freight & logistics brokerage for the admin of the business data monitoring.",
     long:
-      "Case study: Freight brokerage UI with driver/carrier details, tracking, and secure load posting. Built re-usable components and a mobile-first design system.",
+      "Case study: Freight brokerage UI with driver/carrier details, tracking, and secure load posting. Built re-usable components and a design system.",
     image: port02,
     tags: ["Quoting", "Maps", "Payment"],
     liveUrl: "https://busyhandsglobal.com",

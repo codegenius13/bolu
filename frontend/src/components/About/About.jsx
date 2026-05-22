@@ -89,7 +89,7 @@ export default function About() {
                 <p>
                   I am currently developing <strong>Infralytix</strong> — a web-based tool that simplifies research, data analysis and report generation. It can perform simulated visualizations on the basis of proven research. The idea is to help researchers, students, and professionals quickly generate insights and visualizations from data without needing complex software.
                 </p>
-                <a href="https://infralytix.onrender.com" target="_blank">View Site <FaLink /></a>
+                <a href="https://bolu.onrender.com" target="_blank">View Site <FaLink /></a>
               </div>
             </div>
             <div className="about-cta">

@@ -26,7 +26,7 @@ app.use("/api/general", router);
 
 // api endpoints
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.send("Hello World!"); 
 });
 
 

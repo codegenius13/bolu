@@ -14,18 +14,25 @@ const fallbackResume = {
   website: "https://bolu.onrender.com",
   location: "Lagos, Nigeria",
   photoSrc: "",
+  education: "Olusegun Agagu University of Science and Technology",
   summary:
     "I have interest in building digital tools that make analysis, presentation and research more flexible. I'm very much a continous learner and generally easy to work with. I love to think I can be a good addition to any team, and I take pride in my work for others and myself.",
   skills: [
     "Research & Analysis",
-    "Digital Infrastructure",
-    "Data Presentation",
+    "Fullstack Development",
+    "Data Generation",
+    "Data Presentation"
   ],
   highlights: [
     "Research synthesis and insight generation",
-    "Data-driven decision support",
-    "Analytics tracking",
+    "Data decision support",
+    "Analytics tracking and monitoring",
     "System design for digital operations",
+  ],
+  certifications: [
+    "Jobberman Soft Skill Training",
+    "Introduction to Programming Using JavaScript",
+    "ICSAE-XII Conference Certificate"
   ],
   experience: [
     {
@@ -261,12 +268,12 @@ function buildResumeData() {
     photoSrc: photoSrc || fallbackResume.photoSrc,
     summary,
     skills,
+    education,
     experience: experience.length > 0 ? experience : fallbackResume.experience,
-    highlights: [
-      "Research synthesis and insight generation",
-      "Data-driven decision support",
-      "Analytics tracking",
-      "System design for digital operations",
+    certifications: [
+      "Jobberman Soft Skill Training",
+      "Introduction to Programming Using JavaScript",
+      "ICSAE-XII Conference Certificate"
     ],
   };
 }
@@ -502,12 +509,12 @@ function Resume() {
               </section>
 
               <section className="paper-block">
-                <h3>Selected Strengths</h3>
-                <ul className="paper-list paper-list--compact">
-                  {resumeData.highlights.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
+                <h3>Education</h3>
+                <p>{resumeData.education}</p>
+                <div className="paper-grade">
+                  <strong><small>Second Class Upper Division</small></strong>
+                  <small>2025</small>
+                </div>
               </section>
             </aside>
 
@@ -534,17 +541,14 @@ function Resume() {
                 </div>
               </section>
 
-              {/*<section className="paper-block paper-block--summary">
-                <h3>Profile Summary</h3>
-                <p>{resumeData.summary}</p>
-              </section>*/}
+              <section className="paper-block paper-block--summary">
+                <h3>Certifcations</h3>
+                {resumeData.certifications.map((certifications) => (
+                    <p key={certifications}>{certifications}</p>
+                  ))}
+              </section>
             </main>
           </div>
-
-          <footer className="resume-paper__footer">
-            <span>Generated from the live portfolio page</span>
-            <span>One-page resume export</span>
-          </footer>
         </div>
       </div>
     </section>

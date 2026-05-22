@@ -436,6 +436,13 @@
     color: rgba(17, 24, 39, 0.84);
 }
 
+.paper-grade {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 15px;
+}
+
 .resume-paper__footer {
     display: flex;
     justify-content: space-between;
