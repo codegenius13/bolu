@@ -70,11 +70,11 @@ const analyticsData = [
   {
     month: "May",
     inquiries: 1,
-    qualifiedLeads: 0,
+    qualifiedLeads: 1,
     callsBooked: 0,
     projectsWon: 0,
-    githubCommits: 8,
-    portfolioVisits: 7,
+    githubCommits: 9,
+    portfolioVisits: 10,
     linkedinGrowth: 7,
     toolUsage: 2,
   },
@@ -84,7 +84,7 @@ const analyticsData = [
     qualifiedLeads: 0,
     callsBooked: 0,
     projectsWon: 0,
-    githubCommits: 0,
+    githubCommits: 1,
     portfolioVisits: 0,
     linkedinGrowth: 0,
     toolUsage: 0,
@@ -341,7 +341,7 @@ function Analytics() {
               A snapshot of my work journey through key metrics and trends.
             </p>
             <p style={{ fontWeight: "bold", marginTop: "6px", color: "var(--text-secondary)" }}>
-              Live Updated • April {CURRENT_YEAR}
+              Live Updated • June {CURRENT_YEAR}
             </p>
           </div>
 
