@@ -39,6 +39,7 @@ const Navbar = () => {
           <li onClick={() => handleScroll("requests")}>JobRequests</li>
           <li onClick={() => handleScroll("work")}>Portfolio</li>
           <li onClick={() => handleScroll("resume")}>Resume</li>
+          <li onClick={() => handleScroll("achievements")}>Achievements</li>
           <li onClick={() => handleScroll("reviews")}>Reviews</li>
           <li onClick={() => handleScroll("contact")}>Contact</li>
         </ul>

@@ -3,6 +3,8 @@ import "./Portfolio.css";
 import port01 from "../../assets/img/blessedLogo.jpg";
 import port02 from "../../assets/img/busyhandsLogo.jpg";
 import port03 from "../../assets/img/wichita.png";
+import port04 from "../../assets/img/christiLogo.png";
+import port05 from "../../assets/img/ghLogo.jpg";
 
 
 
@@ -36,6 +38,19 @@ const FALLBACK_DATA = [
   },
   {
     id: "web-3",
+    title: "Web Developer",
+    company: "Chriti Nursing Network",
+    type: "web",
+    year: 2024,
+    short: "Developed a web application for booking nursing appointments.",
+    long:
+      "Case study: Built a responsive web application for booking nursing appointments with real-time availability updates. Used React for the frontend and Node.js for the backend, integrating with a calendar API for scheduling.",
+    image: port04,
+    tags: ["Book Appointment", "Health", "NEMT"],
+    liveUrl: "https://cnnnurse.com/",
+  },
+  {
+    id: "web-4",
     title: "Research Assistant to a Graduate and Teaching Assistant",
     company: "Wichita State University",
     type: "research",
@@ -45,6 +60,18 @@ const FALLBACK_DATA = [
       "Case study: Providing Digital and Calculated Solutions to Logistics in Industrial Engineering",
     image: port03,
     tags: ["Research", "Data Analysis", "Technical Writing", "Survey", "Presentation"],
+  },
+  {
+    id: "web-5",
+    title: "SIWES Training Student",
+    company: "General Hospital Ikorodu, Lagos State.",
+    type: "internship",
+    year: 2024,
+    short: "Gained experience in a healthcare settings.",
+    long:
+      "Case study: Gained experience in a healthcare settings. I was able to rotate through different departments and learn about the various roles and responsibilities of healthcare professionals. I also had the opportunity to work with patients and provide care under the supervision of experienced laboratory scientists.",
+    image: port05,
+    tags: ["Health", "Phlebotomy", "Chemical Pathology", "Hematology", "Microbiology"],
   },
 ];
 
@@ -105,6 +132,7 @@ export default function Portfolio() {
               <button className={`filter ${filter==="all"?"active":""}`} onClick={() => setFilter("all")}>All</button>
               <button className={`filter ${filter==="web"?"active":""}`} onClick={() => setFilter("web")}>Web</button>
               <button className={`filter ${filter==="research"?"active":""}`} onClick={() => setFilter("research")}>Research</button>
+              <button className={`filter ${filter==="internship"?"active":""}`} onClick={() => setFilter("internship")}>Internship</button>
             </div>
 
             <div className="search">
@@ -137,7 +165,7 @@ export default function Portfolio() {
                 <div className="card-media" role="img" aria-label={w.title} style={{backgroundImage: `url(${w.image})`}} />
                 <div className="card-body">
                   <div className="card-meta">
-                    <span className="type">{w.type === "web" ? "Website" : "Research"}</span>
+                    <span className="type">{w.type === "web" ? "Website" : w.type === "research" ? "Research" : "Internship"}</span>
                     <span className="year">{w.year}</span>
                   </div>
 
@@ -174,7 +202,7 @@ export default function Portfolio() {
                   <h3>{active.title}</h3>
                   <h5 className="modal-company">{active.company}</h5>
                   <div className="modal-meta">
-                    <span>{active.type === "web" ? "Website" : "Research Paper"}</span>
+                    <span>{active.type === "web" ? "Website" : active.type === "research" ? "Research Paper" : "Internship"}</span>
                     <span> • {active.year}</span>
                   </div>
 

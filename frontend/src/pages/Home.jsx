@@ -8,6 +8,7 @@ import Reviews from '../components/Reviews/Reviews'
 import Contact from '../components/Contact/Contact'
 import Analytics from '../components/Analytics/Analytics'
 import Resume from '../components/Resume/Resume'
+import Achievements from '../components/Achievements/Achievements'
 
 
 const Home = () => {
@@ -20,6 +21,7 @@ const Home = () => {
       <Request />
       <Portfolio />
       <Resume />
+      <Achievements />
       <Reviews />
       <Contact />
     </div>
