@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ResponsiveContainer,
@@ -25,135 +25,135 @@ import "./Analytics.css";
 const analyticsData = [
   {
     month: "Jan",
-    inquiries: 0,
-    qualifiedLeads: 0,
-    callsBooked: 0,
-    projectsWon: 0,
+    coursesCompleted: 0,
+    researchExercises: 0,
+    bioinformaticsTasks: 0,
+    researchProjects: 0,
+    toolsExplored: 1,
     githubCommits: 8,
     portfolioVisits: 0,
     linkedinGrowth: 5,
-    toolUsage: 1,
   },
   {
     month: "Feb",
-    inquiries: 1,
-    qualifiedLeads: 1,
-    callsBooked: 1,
-    projectsWon: 0,
+    coursesCompleted: 0,
+    researchExercises: 0,
+    bioinformaticsTasks: 0,
+    researchProjects: 0,
+    toolsExplored: 7,
     githubCommits: 3,
     portfolioVisits: 2,
     linkedinGrowth: 2,
-    toolUsage: 7,
   },
   {
     month: "Mar",
-    inquiries: 1,
-    qualifiedLeads: 1,
-    callsBooked: 1,
-    projectsWon: 0,
+    coursesCompleted: 0,
+    researchExercises: 0,
+    bioinformaticsTasks: 0,
+    researchProjects: 0,
+    toolsExplored: 4,
     githubCommits: 26,
     portfolioVisits: 5,
     linkedinGrowth: 20,
-    toolUsage: 4,
   },
   {
     month: "Apr",
-    inquiries: 2,
-    qualifiedLeads: 2,
-    callsBooked: 1,
-    projectsWon: 0,
+    coursesCompleted: 0,
+    researchExercises: 0,
+    bioinformaticsTasks: 0,
+    researchProjects: 0,
+    toolsExplored: 3,
     githubCommits: 35,
     portfolioVisits: 9,
     linkedinGrowth: 15,
-    toolUsage: 3,
   },
   {
     month: "May",
-    inquiries: 1,
-    qualifiedLeads: 1,
-    callsBooked: 0,
-    projectsWon: 0,
+    coursesCompleted: 0,
+    researchExercises: 0,
+    bioinformaticsTasks: 0,
+    researchProjects: 0,
+    toolsExplored: 2,
     githubCommits: 9,
     portfolioVisits: 10,
     linkedinGrowth: 7,
-    toolUsage: 2,
   },
   {
     month: "Jun",
-    inquiries: 0,
-    qualifiedLeads: 0,
-    callsBooked: 0,
-    projectsWon: 0,
+    coursesCompleted: 0,
+    researchExercises: 0,
+    bioinformaticsTasks: 0,
+    researchProjects: 0,
+    toolsExplored: 0,
     githubCommits: 1,
     portfolioVisits: 0,
     linkedinGrowth: 0,
-    toolUsage: 0,
   },
   {
     month: "Jul",
-    inquiries: 0,
-    qualifiedLeads: 0,
-    callsBooked: 0,
-    projectsWon: 0,
+    coursesCompleted: 0,
+    researchExercises: 0,
+    bioinformaticsTasks: 0,
+    researchProjects: 0,
+    toolsExplored: 0,
     githubCommits: 0,
     portfolioVisits: 0,
     linkedinGrowth: 0,
-    toolUsage: 0,
   },
   {
     month: "Aug",
-    inquiries: 0,
-    qualifiedLeads: 0,
-    callsBooked: 0,
-    projectsWon: 0,
+    coursesCompleted: 0,
+    researchExercises: 0,
+    bioinformaticsTasks: 0,
+    researchProjects: 0,
+    toolsExplored: 0,
     githubCommits: 0,
     portfolioVisits: 0,
     linkedinGrowth: 0,
-    toolUsage: 0,
   },
   {
     month: "Sep",
-    inquiries: 0,
-    qualifiedLeads: 0,
-    callsBooked: 0,
-    projectsWon: 0,
+    coursesCompleted: 0,
+    researchExercises: 0,
+    bioinformaticsTasks: 0,
+    researchProjects: 0,
+    toolsExplored: 0,
     githubCommits: 0,
     portfolioVisits: 0,
     linkedinGrowth: 0,
-    toolUsage: 0,
   },
   {
     month: "Oct",
-    inquiries: 0,
-    qualifiedLeads: 0,
-    callsBooked: 0,
-    projectsWon: 0,
+    coursesCompleted: 0,
+    researchExercises: 0,
+    bioinformaticsTasks: 0,
+    researchProjects: 0,
+    toolsExplored: 0,
     githubCommits: 0,
     portfolioVisits: 0,
     linkedinGrowth: 0,
-    toolUsage: 0,
   },
   {
     month: "Nov",
-    inquiries: 0,
-    qualifiedLeads: 0,
-    callsBooked: 0,
-    projectsWon: 0,
+    coursesCompleted: 0,
+    researchExercises: 0,
+    bioinformaticsTasks: 0,
+    researchProjects: 0,
+    toolsExplored: 0,
     githubCommits: 0,
     portfolioVisits: 0,
     linkedinGrowth: 0,
-    toolUsage: 0,
   },
   {
     month: "Dec",
-    inquiries: 0,
-    qualifiedLeads: 0,
-    callsBooked: 0,
-    projectsWon: 0,
+    coursesCompleted: 0,
+    researchExercises: 0,
+    bioinformaticsTasks: 0,
+    researchProjects: 0,
+    toolsExplored: 0,
     githubCommits: 0,
     portfolioVisits: 0,
     linkedinGrowth: 0,
-    toolUsage: 0,
   },
 ];
 
@@ -173,7 +173,7 @@ const rangeOptions = [
 
 const viewOptions = [
   { label: "All", value: "all" },
-  { label: "Job Influx", value: "jobs" },
+  { label: "Learning Progress", value: "learning" },
   { label: "Growth Signals", value: "growth" },
 ];
 
@@ -240,45 +240,37 @@ function Analytics() {
     return addTrend(filteredData, "portfolioVisits");
   }, [filteredData]);
 
-  const jobStats = useMemo(() => {
-    const totalInquiries = sumField(filteredData, "inquiries");
-    const totalQualified = sumField(filteredData, "qualifiedLeads");
-    const totalCalls = sumField(filteredData, "callsBooked");
-    const totalWins = sumField(filteredData, "projectsWon");
-    const bestMonth = filteredData.reduce((best, item) => {
-      const bestScore =
-        best.inquiries +
-        best.qualifiedLeads +
-        best.callsBooked +
-        best.projectsWon +
-        best.githubCommits +
-        best.portfolioVisits +
-        best.linkedinGrowth +
-        best.toolUsage;
-
-      const itemScore =
-        item.inquiries +
-        item.qualifiedLeads +
-        item.callsBooked +
-        item.projectsWon +
-        item.githubCommits +
-        item.portfolioVisits +
-        item.linkedinGrowth +
-        item.toolUsage;
-
-      return itemScore > bestScore ? item : best;
-    }, filteredData[0]);
+  const learningStats = useMemo(() => {
+    const courses = sumField(filteredData, "coursesCompleted");
+    const exercises = sumField(filteredData, "researchExercises");
+    const bioinformatics = sumField(filteredData, "bioinformaticsTasks");
+    const projects = sumField(filteredData, "researchProjects");
+    const tools = sumField(filteredData, "toolsExplored");
 
     return {
-      totalInquiries,
-      totalQualified,
-      totalCalls,
-      totalWins,
-      bestMonth: bestMonth?.month || "-",
-      conversionRate:
-        totalInquiries > 0
-          ? ((totalWins / totalInquiries) * 100).toFixed(1)
-          : "0.0",
+      courses,
+      exercises,
+      bioinformatics,
+      projects,
+      tools,
+      bestMonth:
+        filteredData.reduce((best, item) => {
+          const bestScore =
+            best.coursesCompleted +
+            best.researchExercises +
+            best.bioinformaticsTasks +
+            best.researchProjects +
+            best.toolsExplored;
+
+          const itemScore =
+            item.coursesCompleted +
+            item.researchExercises +
+            item.bioinformaticsTasks +
+            item.researchProjects +
+            item.toolsExplored;
+
+          return itemScore > bestScore ? item : best;
+        }, filteredData[0])?.month || "-",
     };
   }, [filteredData]);
 
@@ -286,13 +278,13 @@ function Analytics() {
     const commits = sumField(filteredData, "githubCommits");
     const visits = sumField(filteredData, "portfolioVisits");
     const linkedIn = sumField(filteredData, "linkedinGrowth");
-    const toolUse = sumField(filteredData, "toolUsage");
+    const tools = sumField(filteredData, "toolsExplored");
 
     return {
       commits,
       visits,
       linkedIn,
-      toolUse,
+      tools,
       peakCommits: maxField(filteredData, "githubCommits"),
       avgVisits:
         visits > 0
@@ -301,8 +293,11 @@ function Analytics() {
     };
   }, [filteredData]);
 
-  const showJobs = activeView === "all" || activeView === "jobs";
-  const showGrowth = activeView === "all" || activeView === "growth";
+  const showLearning =
+    activeView === "all" || activeView === "learning";
+
+  const showGrowth =
+    activeView === "all" || activeView === "growth";
 
   const TooltipContent = ({ active, payload, label }) => {
     if (!active || !payload?.length) return null;
@@ -335,13 +330,24 @@ function Analytics() {
       >
         <div className="analytics-header">
           <div>
-            <span className="section-kicker">Work Analytics</span>
-            <h2>{CURRENT_YEAR} Growth Analytics • Progress, Traction & Performance</h2>
+            <span className="section-kicker">Learning & Research Progress</span>
+
+            <h2>
+              {CURRENT_YEAR} Progress Analytics • Learning, Research & Development
+            </h2>
+
             <p>
-              A snapshot of my work journey through key metrics and trends.
+              A record of my learning, research practice, technical development, and progress throughout the year.
             </p>
-            <p style={{ fontWeight: "bold", marginTop: "6px", color: "var(--text-secondary)" }}>
-              Live Updated • June {CURRENT_YEAR}
+
+            <p
+              style={{
+                fontWeight: "bold",
+                marginTop: "6px",
+                color: "var(--text-secondary)",
+              }}
+            >
+              Updated • August {CURRENT_YEAR}
             </p>
           </div>
 
@@ -374,9 +380,9 @@ function Analytics() {
 
         <div className="analytics-grid">
           <AnimatePresence mode="wait">
-            {showJobs && (
+            {showLearning && (
               <MotionCard
-                key="jobs-card"
+                key="learning-card"
                 className="analytics-card analytics-card--jobs"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -386,33 +392,39 @@ function Analytics() {
                 <div className="card-top">
                   <div>
                     <span className="card-kicker">Section 01</span>
-                    <h3>Job Influx Rate</h3>
+
+                    <h3>Learning & Research Progress</h3>
+
                     <p>
-                      Track requests, calls booked, and job completion over time.
+                      Track my learning, research practice, bioinformatics work,
+                      and technical development throughout the year.
                     </p>
                   </div>
 
                   <div className="mini-badge">
-                    {filteredData.length} points
+                    {filteredData.length} months
                   </div>
                 </div>
 
                 <div className="metric-grid">
                   <div className="metric-card">
-                    <span>Total Requests</span>
-                    <strong>{jobStats.totalInquiries}</strong>
+                    <span>Courses Completed</span>
+                    <strong>{learningStats.courses}</strong>
                   </div>
+
                   <div className="metric-card">
-                    <span>Qualified Leads</span>
-                    <strong>{jobStats.totalQualified}</strong>
+                    <span>Research Exercises</span>
+                    <strong>{learningStats.exercises}</strong>
                   </div>
+
                   <div className="metric-card">
-                    <span>Calls Booked</span>
-                    <strong>{jobStats.totalCalls}</strong>
+                    <span>Bioinformatics Tasks</span>
+                    <strong>{learningStats.bioinformatics}</strong>
                   </div>
+
                   <div className="metric-card">
-                    <span>Completion (%)</span>
-                    <strong>{jobStats.conversionRate}%</strong>
+                    <span>Research Projects</span>
+                    <strong>{learningStats.projects}</strong>
                   </div>
                 </div>
 
@@ -420,46 +432,49 @@ function Analytics() {
                   <ResponsiveContainer width="100%" height={340}>
                     <LineChart data={filteredData}>
                       <CartesianGrid strokeDasharray="4 4" />
-                      <XAxis
-                        dataKey="month"
-                        tickFormatter={(value, index) =>
-                          `${trendData[index]?.month || value} ${trendData[index]?.trend || ""}`
-                        }
-                      />
+
+                      <XAxis dataKey="month" />
+
                       <YAxis />
+
                       <Tooltip content={<TooltipContent />} />
+
                       <Legend />
+
                       <Line
                         type="monotone"
-                        dataKey="inquiries"
-                        name="Requests"
+                        dataKey="coursesCompleted"
+                        name="Courses Completed"
                         stroke="var(--primary-color)"
                         strokeWidth={3}
                         dot={{ r: 3 }}
                         activeDot={{ r: 6 }}
                       />
+
                       <Line
                         type="monotone"
-                        dataKey="qualifiedLeads"
-                        name="Qualified Leads"
+                        dataKey="researchExercises"
+                        name="Research Exercises"
                         stroke="var(--accent-color)"
                         strokeWidth={3}
                         dot={{ r: 3 }}
                         activeDot={{ r: 6 }}
                       />
+
                       <Line
                         type="monotone"
-                        dataKey="callsBooked"
-                        name="Calls Booked"
+                        dataKey="bioinformaticsTasks"
+                        name="Bioinformatics Tasks"
                         stroke="var(--secondary-color)"
                         strokeWidth={3}
                         dot={{ r: 3 }}
                         activeDot={{ r: 6 }}
                       />
+
                       <Line
                         type="monotone"
-                        dataKey="projectsWon"
-                        name="Job Completions"
+                        dataKey="researchProjects"
+                        name="Research Projects"
                         stroke="var(--success-color)"
                         strokeWidth={3}
                         dot={{ r: 3 }}
@@ -469,6 +484,27 @@ function Analytics() {
                   </ResponsiveContainer>
                 </div>
 
+                <div className="card-footer">
+                  <div>
+                    <span>Tools Explored</span>
+                    <strong>{learningStats.tools}</strong>
+                  </div>
+
+                  <div>
+                    <span>Courses Completed</span>
+                    <strong>{learningStats.courses}</strong>
+                  </div>
+
+                  <div>
+                    <span>Research Exercises</span>
+                    <strong>{learningStats.exercises}</strong>
+                  </div>
+
+                  <div>
+                    <span>Most Active Month</span>
+                    <strong>{learningStats.bestMonth}</strong>
+                  </div>
+                </div>
               </MotionCard>
             )}
           </AnimatePresence>
@@ -486,10 +522,11 @@ function Analytics() {
                 <div className="card-top">
                   <div>
                     <span className="card-kicker">Section 02</span>
-                    <h3>Work Growth Signals</h3>
+                    <h3>Technical & Professional Growth</h3>
+
                     <p>
-                      Visualize my GitHub activity, portfolio traffic, LinkedIn
-                      growth, and tool usage.
+                      Track my GitHub activity, portfolio visits, LinkedIn growth,
+                      and use of research and bioinformatics tools.
                     </p>
                   </div>
 
@@ -512,8 +549,8 @@ function Analytics() {
                     <strong>{growthStats.linkedIn}</strong>
                   </div>
                   <div className="metric-card">
-                    <span>Tool Usage</span>
-                    <strong>{growthStats.toolUse}</strong>
+                    <span>Tools Explored</span>
+                    <strong>{growthStats.tools}</strong>
                   </div>
                 </div>
 
@@ -569,7 +606,7 @@ function Analytics() {
 
                 <div className="growth-bars">
                   <div className="growth-bars__header">
-                    <h4>Tool usage snapshot</h4>
+                    <h4>Research & Bioinformatics Tools</h4>
                     <span>{filteredData.length} points</span>
                   </div>
 
@@ -581,8 +618,8 @@ function Analytics() {
                       <Tooltip content={<TooltipContent />} />
                       <Legend />
                       <Bar
-                        dataKey="toolUsage"
-                        name="Tool Usage"
+                        dataKey="toolExplored"
+                        name="Tools Explored"
                         fill="var(--warning-color)"
                         radius={[5, 5, 0, 0]}
                       />
@@ -595,17 +632,20 @@ function Analytics() {
                     <span>Average visits / month</span>
                     <strong>{growthStats.avgVisits}</strong>
                   </div>
+
                   <div>
                     <span>Peak commits in a month</span>
                     <strong>{growthStats.peakCommits}</strong>
                   </div>
+
                   <div>
-                    <span>Best month</span>
-                    <strong>{jobStats.bestMonth}</strong>
+                    <span>LinkedIn Growth</span>
+                    <strong>{growthStats.linkedIn}</strong>
                   </div>
+
                   <div>
-                    <span>Total Job Completed</span>
-                    <strong>{jobStats.totalWins}</strong>
+                    <span>Tools Explored</span>
+                    <strong>{growthStats.tools}</strong>
                   </div>
                 </div>
               </MotionCard>

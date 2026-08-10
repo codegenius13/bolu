@@ -1,5 +1,5 @@
 .phone {
-   position: fixed;
+  position: fixed;
   bottom: 20px;
   right: 20px;
   background: var(--primary-color);
@@ -15,19 +15,26 @@
   z-index: 9999;
   animation: bubbleBounce 2s infinite ease-in-out;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
-    z-index: 1000;
+  z-index: 1000;
 }
+
 .phone:hover {
-    transform: scale(1.15);
-    box-shadow: 0 0 15px rgba(0,0,0,0.25);
+  transform: scale(1.15);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
 }
+
 .phone-icon {
-    color: var(--light-color);
+  font-size: 25px;
+  color: var(--light-color);
 }
+
 @keyframes bubbleBounce {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-6px);
   }

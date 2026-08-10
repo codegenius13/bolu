@@ -161,11 +161,7 @@ button {
     transition: var(--transition);
 }
 
-select:focus,
-input:focus,
-textarea:focus {
-    outline: 1px solid var(--primary-color);
-}
+
 
 h1 {
     font-size: 3em;

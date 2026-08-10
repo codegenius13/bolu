@@ -6,7 +6,7 @@ import "./Resume.css";
 
 const fallbackResume = {
   name: "Ikuerowo Boluwatife",
-  role: "Researcher • Data Analyst • Digital Strategist",
+  role: "Molecular Biology Researcher • Bioinformatics • Biochemistry",
   email: "ikuerowob@gmail.com",
   phone: "+234 814 558 4399",
   whatsapp: "+234 814 558 4399",
@@ -24,13 +24,14 @@ const fallbackResume = {
     },
   ],
   summary:
-    "I have interest in building digital tools that make analysis, presentation and research more flexible. I'm very much a continous learner and generally easy to work with. I love to think I can be a good addition to any team, and I take pride in my work for others and myself.",
+    "I'm interested in molecular biology, bioinformatics, biochemistry, research, and the use of technology to work with biological data. I'm a continuous learner who develops my skills through research, practical work, and personal projects. My background in biochemistry gives me a foundation in the life sciences, while my experience with programming and data analysis allows me to work with biological data using computational tools.",
   skills: [
-    "Research & Analysis",
-    "Fullstack Development",
-    "Data Generation",
-    "Data Presentation",
-    "Laboratory Skills"
+    "JavaScript, React, Node.js, Express and MongoDB",
+    "Bioinformatics",
+    "Data Analysis",
+    "Molecular Biology Research",
+    "Laboratory Techniques",
+    "Technical Writing",
   ],
   highlights: [
     "Research synthesis and insight generation",
@@ -45,11 +46,17 @@ const fallbackResume = {
   ],
   experience: [
     {
-      title: "Selected Portfolio Work",
-      company: "Bolu Portfolio",
+      title: "Selected Research and Technical Projects",
+      company: "Independent Projects",
       description:
-        "Projects and website sections that show research thinking, design sense, and digital problem solving.",
-      tech: ["MERN", "Node.js", "Express", "MongoDB"],
+        "Projects that combine biological research, data analysis, bioinformatics, programming, and digital tools.",
+      tech: [
+        "JavaScript",
+        "React",
+        "Node.js",
+        "Express",
+        "MongoDB",
+      ],
     },
   ],
   publications: [
@@ -69,7 +76,7 @@ const fallbackResume = {
       title:
         "In vitro polyphenol content and antioxidant properties of Corchorus olitorius stored at 4 °C for 3, 6, and 9 days",
       type: "Journal Article",
-      status: "Under Review",
+      status: "Published",
       venue:
         "Journal of Bioscience and Biotechnology",
       year: "2026",
@@ -221,7 +228,7 @@ function collectSkills() {
 
   const buckets = [
     {
-      label: "Research & Analysis",
+      label: "Research & Data Analysis",
       keywords: [
         "research",
         "analysis",
@@ -232,28 +239,25 @@ function collectSkills() {
       ],
     },
     {
-      label: "Fullstack Development",
+      label: "JavaScript, React, Node.js, Express and MongoDB",
       keywords: [
-        "infrastructure",
-        "deployment",
-        "server",
-        "database",
-        "api",
-        "cloud",
-        "mern",
-        "mongodb",
+        "javascript",
         "react",
         "node",
         "express",
+        "mongodb",
       ],
     },
     {
-      label: "Data Generation",
+      label: "Bioinformatics",
       keywords: [
-        "data generation",
-        "experimental",
-        "sampling",
-        "analysis",
+        "bioinformatics",
+        "genomics",
+        "genome",
+        "sequence",
+        "dna",
+        "rna",
+        "protein",
       ],
     },
     {
@@ -268,7 +272,7 @@ function collectSkills() {
       ],
     },
     {
-      label: "Laboratory Skills",
+      label: "Laboratory Techniques",
       keywords: [
         "spectrophotometry",
         "pcr",
@@ -326,8 +330,8 @@ function collectNameAndRole() {
   const heroRoot = getRoot(["#hero", ".hero-section", "[data-section='hero']"]);
 
   const name =
-    firstText(["[data-resume-name]", "hero-name"], heroRoot) ||
-    firstText(["[data-resume-name]", "hero-name"], document) ||
+    firstText(["[data-resume-name]", ".hero-name"], heroRoot) ||
+    firstText(["[data-resume-name]", ".hero-name"], document) ||
     fallbackResume.name;
 
   const role =
@@ -508,11 +512,20 @@ function Resume() {
             </div>
 
             <div className="resume-output-list">
-              <h4>What the PDF picks up</h4>
+              <h4>What the PDF includes</h4>
+
               <ul>
-                <li>Personal info such as email, phone, WhatsApp, LinkedIn, and website</li>
-                <li>Experience from my portfolio cards and project sections</li>
-                <li>Skills inferred from the content already on the page</li>
+                <li>
+                  Contact information such as email, phone, WhatsApp, LinkedIn, and website
+                </li>
+
+                <li>
+                  Experience and selected projects from my portfolio
+                </li>
+
+                <li>
+                  Skills based on the information on my portfolio
+                </li>
               </ul>
             </div>
 
@@ -527,13 +540,13 @@ function Resume() {
             viewport={{ once: true }}
           >
             <div className="resume-side-card__header">
-              <span className="card-kicker">Quick & Flexible</span>
-              <h3>Download All Information</h3>
+              <span className="card-kicker">Resume</span>
+              <h3>Download My Resume</h3>
             </div>
 
             <div className="resume-side-card__content">
               <p>
-                Download a comprehensive PDF that includes all my information, skills, and experience.
+                Download a one-page PDF with my education, skills, research experience, projects, and publications.
               </p>
 
               <div className="resume-pills">
@@ -562,7 +575,9 @@ function Resume() {
         <div ref={templateRef} className="resume-template">
           <header className="resume-paper__header">
             <div className="resume-paper__identity">
-              <p className="resume-paper__eyebrow">Professional Resume</p>
+              <p className="resume-paper__eyebrow">
+                Research & Professional Profile
+              </p>
               <h3>{resumeData.name}</h3>
               <h5>{resumeData.role}</h5>
               <p className="resume-paper__summary">{resumeData.summary}</p>

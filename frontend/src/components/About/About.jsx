@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./About.css";
-import { FaEnvelope, FaGithub, FaLink, FaLinkedin  } from "react-icons/fa";
+import { FaEnvelope, FaGithub, FaGlobe, FaLink, FaLinkedin } from "react-icons/fa";
 import { FaSquareUpwork } from "react-icons/fa6";
-import infralytix from "../../assets/img/infralytix.png";
 
 export default function About() {
   const [inView, setInView] = useState(false);
@@ -10,10 +9,10 @@ export default function About() {
   const sectionRef = useRef(null);
 
   const skills = [
-    { name: "JavaScript / React", pct: 92 },
-    { name: "Node.js / Express / Database (MongoDb)", pct: 88 },
-    { name: "Data Analysis", pct: 83 },
-    { name: "Laboratory Research", pct: 75 },
+    { name: "JavaScript, React, Node.js, Express & MongoDB", pct: 94 },
+    { name: "Bioinformatics", pct: 85 },
+    { name: "Molecular Biology Research", pct: 80 },
+    { name: "Laboratory Techniques", pct: 78 },
     { name: "Technical Writing", pct: 81 },
   ];
 
@@ -48,9 +47,7 @@ export default function About() {
     const animate = (ts) => {
       const progress = Math.min((ts - start) / duration, 1);
       setCounts({
-        projects: Math.floor(progress * 3), // example final values
-        clients: Math.floor(progress * 2),
-        years: Math.floor(progress * 3 + 1),
+        projects: Math.floor(progress * 3),
       });
       if (progress < 1) raf = requestAnimationFrame(animate);
     };
@@ -67,16 +64,25 @@ export default function About() {
           <h2 id="about-title">About Me</h2>
 
           <p className="about-leading">
-            I'm Bolu Ikuerowo — <span className="cv-highlight"> I have interest in building digital tools and making data analysis, presentation and research more flexible. I'm very much a continous learner and generally easy to work with. I love to think I can be a good addition to any team, and I take pride in my work for others and myself.</span>
+            I'm Bolu Ikuerowo —{" "}
+            <span className="cv-highlight">
+              I'm interested in molecular biology, bioinformatics, biochemistry,
+              research, and the use of technology to work with biological data.
+              I'm very much a continuous learner, and I enjoy developing my skills
+              through research, practical work, and personal projects.
+            </span>
           </p>
 
           <div className="about-text">
             <p>
-              I take remote and contract work via LinkedIn and also
-              work directly with small businesses within my connection.
+              My background in biochemistry gives me a foundation in the life
+              sciences, while my growing experience in bioinformatics and
+              programming allows me to work with biological data using
+              computational tools. I also build web applications and digital
+              tools that can be useful for research or other projects.
             </p>
 
-            <div className="project-highlight">
+            {/*<div className="project-highlight">
               <div className="project-image">
                 <img
                   src={infralytix}
@@ -91,12 +97,8 @@ export default function About() {
                 </p>
                 <a href="https://bolu.onrender.com" target="_blank">View Site <FaLink /></a>
               </div>
-            </div>
+            </div>*/}
             <div className="about-cta">
-              <button className="btn" onClick={() => document.getElementById("work")?.scrollIntoView({ behavior: "smooth" })}>
-                View Works
-              </button>
-
               <button className="btn btn-secondary" onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}>
                 Contact Me
               </button>
@@ -111,13 +113,15 @@ export default function About() {
               <div className="stat-number">{counts.projects}+</div>
               <div className="stat-label">Projects</div>
             </div>
+
             <div className="stat">
-              <div className="stat-number">{counts.clients}+</div>
-              <div className="stat-label">Clients</div>
+              <div className="stat-number">3</div>
+              <div className="stat-label">Research Areas</div>
             </div>
+
             <div className="stat">
-              <div className="stat-number">{counts.years}</div>
-              <div className="stat-label">Years</div>
+              <div className="stat-number">2</div>
+              <div className="stat-label">Research Papers</div>
             </div>
           </div>
 
@@ -144,19 +148,20 @@ export default function About() {
           </div>
 
           <div className="sources">
-            <h5>Where I get work</h5>
+            <h5>Find Me Online</h5>
+
             <p className="small">
-              Most requests come from LinkedIn, plus direct referrals
-              within my connection. I keep portfolio and profiles up to date.
+              You can find more about my work, projects, and professional
+              background through my online profiles.
             </p>
             <div className="source-links">
               <a href="https://www.linkedin.com/in/boluwatife-ikuerowo-80490226b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer">
                 <FaLinkedin size={20} style={{ verticalAlign: 'middle', marginRight: '6px' }} />
                 LinkedIn
               </a>
-              <a href="mailto:ikuerowob@gmail.com" target="_blank" rel="noopener noreferrer">
-                <FaEnvelope size={20} style={{ verticalAlign: 'middle', marginRight: '6px' }} />
-                Email Referral
+              <a href="" target="_blank" rel="noopener noreferrer">
+                <FaGlobe size={20} style={{ verticalAlign: 'middle', marginRight: '6px' }} />
+                Library
               </a>
               <a href="https://github.com/codegenius13" target="_blank" rel="noopener noreferrer">
                 <FaGithub size={20} style={{ verticalAlign: 'middle', marginRight: '6px' }} />

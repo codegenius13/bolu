@@ -8,9 +8,9 @@ export default function Hero() {
   const prefersReducedMotion = useReducedMotion();
 
   const phrases = [
-    "Digital Infrastructure Specialist",
-    "Research Data Analyst",
-    "Full-Stack Developer",
+    "Molecular Biology Researcher",
+    "Bioinformatics",
+    "Biochemistry",
   ];
 
   const [typed, setTyped] = useState("");
@@ -102,7 +102,7 @@ export default function Hero() {
       >
         <motion.div className="hero-left" variants={itemVariants}>
           <span className="lead-badge">
-            Digital Infrastructure • Research • Data • Web
+            Molecular Biology • Bioinformatics • Biochemistry
           </span>
 
           <h1 className="hero-title">
@@ -117,30 +117,45 @@ export default function Hero() {
           <p className="hero-desc">
             Welcome to my portfolio!
             <br />
-            I've been developing myself for a while and I'm very much a continous learner in my field of focus, something that is visible on my portfolio and LinkedIn. I'm passionate and generally easy to work with. I'd love for you to check out my portfolio and see some of the work I've done.
+            I've been developing myself for a while, and I'm a continuous learner in the areas I'm interested in. You can see that growth through my work, research, training, and projects. I'm passionate about what I do, easy to work with, and always open to learning and improving.
           </p>
 
           <div className="hero-actions">
-            <button className="btn hero-btn-dark" onClick={() => scrollTo("requests")}>
-              Request a Job
+            <button
+              className="btn hero-btn-dark"
+              onClick={() => scrollTo("contact")}
+            >
+              Work With Me
             </button>
-            <button className="btn-primary hero-btn-light" onClick={() => scrollTo("work")}>
-              View Works
+
+            <button
+              className="btn-primary hero-btn-light"
+              onClick={() => scrollTo("work")}
+            >
+              View My Work
             </button>
           </div>
 
           <div className="hero-proof">
             <div className="proof-card">
+              <strong>Molecular Biology</strong>
+              <span>
+                Learning and applying molecular biology methods and concepts.
+              </span>
+            </div>
+
+            <div className="proof-card">
+              <strong>Bioinformatics</strong>
+              <span>
+                Using computational tools to study biological data.
+              </span>
+            </div>
+
+            <div className="proof-card">
               <strong>Research</strong>
-              <span>Data analysis, reports, and structured insights</span>
-            </div>
-            <div className="proof-card">
-              <strong>Development</strong>
-              <span>Modern websites and dashboards</span>
-            </div>
-            <div className="proof-card">
-              <strong>Infrastructure</strong>
-              <span>Digital workflows and dependable solutions</span>
+              <span>
+                Exploring biological questions through research and data analysis.
+              </span>
             </div>
           </div>
         </motion.div>
@@ -183,9 +198,14 @@ export default function Hero() {
                 }}
                 transition={{ duration: 0.35 }}
               >
-                <span className="speech-label">Speaking</span>
-                <strong>If you like what you see</strong>
-                <span> I'm very much available for further discussions.</span>
+                <span className="speech-label">Hello</span>
+
+                <strong>Thanks for visiting!</strong>
+
+                <span>
+                  Feel free to explore my research, projects, and learning journey.
+                </span>
+
                 <span className="speech-emoji">Thank you!</span>
                 <i className="speech-tail" />
               </motion.div>

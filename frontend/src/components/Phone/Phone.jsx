@@ -1,13 +1,13 @@
 import React from 'react'
 import "./Phone.css"
-import { FaPhone } from "react-icons/fa";
+import { FaEnvelope } from "react-icons/fa";
 
 const Phone = () => {
   return (
     <div className='phone'>
-        <a href="tel:+2348145584399">
+        <a href="mailto:ikuerowob@gmail.com" target="_blank" rel="noreferrer" aria-label="Email">
             <div className="phone-icon">
-                <FaPhone />
+                <FaEnvelope />
             </div>
         </a>
     </div>

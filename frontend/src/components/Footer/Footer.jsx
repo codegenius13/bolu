@@ -10,7 +10,7 @@ const Footer = () => {
           <h3>
             <span>Bolu</span>Ikuerowo
           </h3>
-          <p>Digital Infrastructure • Research • Data • Web</p>
+          <p>Molecular Biology • Bioinformatics • Biochemistry</p>
         </div>
 
         {/* Socials */}

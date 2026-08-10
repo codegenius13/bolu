@@ -3,12 +3,12 @@ import Hero from '../components/Hero/Hero'
 import About from '../components/About/About'
 import Services from '../components/Services/Services'
 import Portfolio from '../components/Portfolio/Portfolio'
-import Request from '../components/Request/Request'
-import Reviews from '../components/Reviews/Reviews'
+//import Request from '../components/Request/Request'
+//import Reviews from '../components/Reviews/Reviews'
 import Contact from '../components/Contact/Contact'
-import Analytics from '../components/Analytics/Analytics'
 import Resume from '../components/Resume/Resume'
 import Achievements from '../components/Achievements/Achievements'
+import Analytics from '../components/Analytics/Analytics'
 
 
 const Home = () => {
@@ -16,13 +16,13 @@ const Home = () => {
     <div style={{marginBottom: "30px", marginTop: "75px"}}>
       <Hero />
       <About />
-      <Services />
       <Analytics />
+      {/*<Services />
       <Request />
+      <Reviews />*/}
       <Portfolio />
       <Resume />
       <Achievements />
-      <Reviews />
       <Contact />
     </div>
   )
