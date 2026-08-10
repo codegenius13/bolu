@@ -94,7 +94,7 @@ const analyticsData = [
     coursesCompleted: 8,
     researchExercises: 0,
     bioinformaticsTasks: 5,
-    researchProjects: 0,
+    researchProjects: 1,
     toolsExplored: 5,
     githubCommits: 0,
     portfolioVisits: 1,
