@@ -118,9 +118,9 @@ const analyticsData = [
     bioinformaticsTasks: 0,
     researchProjects: 0,
     toolsExplored: 0,
-    githubCommits: 0,
-    portfolioVisits: 0,
-    linkedinGrowth: 0,
+    githubCommits: 10,
+    portfolioVisits: 3,
+    linkedinGrowth: 100,
   },
   {
     month: "Oct",
@@ -347,7 +347,7 @@ function Analytics() {
                 color: "var(--text-secondary)",
               }}
             >
-              Updated • August {CURRENT_YEAR}
+              Updated • September {CURRENT_YEAR}
             </p>
           </div>
 
