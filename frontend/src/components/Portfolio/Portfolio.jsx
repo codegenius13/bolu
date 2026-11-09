@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./Portfolio.css";
-import port01 from "../../assets/img/blessedLogo.jpg";
+import port01 from "../../assets/img/blessedLogo.png";
 import port02 from "../../assets/img/busyhandsLogo.jpg";
 import port03 from "../../assets/img/wichita.png";
-import port04 from "../../assets/img/christiLogo.png";
+import port04 from "../../assets/img/optimalLogo.png";
 import port05 from "../../assets/img/ghLogo.jpg";
 import port06 from "../../assets/img/IDTlogo.jpg";
 import port07 from "../../assets/img/osustechLogo.jpg";
@@ -45,14 +45,14 @@ const FALLBACK_DATA = [
   {
     id: "web-3",
     title: "Web Developer",
-    company: "The Blessed Fields Dispatch and Trucking",
+    company: "The Blessed Fields",
     type: "web",
     year: "Mar 2026",
-    short: "Logistics application forms submission  for drivers, owner operators, and customers request. Monitoring for the business admin.",
+    short: "Developed a form collection system for managing grant applications, funding requests, and business development for NGOs.",
     long:
-      "Case study: Built a logistics system for drivers, owner operators, and customers request. Used React, Node.js, and Mapbox APIs.",
+      "Case study: Developed a form collection system for managing grant applications, funding requests, and business development for NGOs. Built a user-friendly interface for applicants to submit their information and for administrators to review and manage submissions.",
     image: port01,
-    tags: ["Logistics Application", "Request", "Career"],
+    tags: ["Grant", "Funding", "Business Development", "NGO"],
     liveUrl: "https://www.theblessedfields.com",
   },
   {
@@ -71,15 +71,15 @@ const FALLBACK_DATA = [
   {
     id: "web-5",
     title: "Web Developer",
-    company: "Chriti Nursing Network",
+    company: "Optimal Health Beyound",
     type: "web",
     year: "Mar 2025 – Apr 2025",
-    short: "Developed a web application for booking nursing appointments.",
+    short: "Developed a web application for health and wellness programs, including appointment booking and real-time availability updates.",
     long:
-      "Case study: Built a responsive web application for booking nursing appointments with real-time availability updates. Used React for the frontend and Node.js for the backend, integrating with a calendar API for scheduling.",
+      "Case study: Developed a web application for health and wellness programs, including appointment booking and real-time availability updates. Implemented features for users to book appointments, view available time slots, and receive confirmation notifications.",
     image: port04,
-    tags: ["Book Appointment", "Health", "NEMT"],
-    liveUrl: "https://cnnnurse.com/",
+    tags: ["Book Appointment", "Health", "Wellness", "Real-time Updates"],
+    liveUrl: "https://optimalhealthbeyond.com/",
   },
   {
     id: "web-6",

@@ -159,9 +159,9 @@ export default function About() {
                 <FaLinkedin size={20} style={{ verticalAlign: 'middle', marginRight: '6px' }} />
                 LinkedIn
               </a>
-              <a href="" target="_blank" rel="noopener noreferrer">
+              <a href="https://research-library-wi21.onrender.com/" target="_blank" rel="noopener noreferrer">
                 <FaGlobe size={20} style={{ verticalAlign: 'middle', marginRight: '6px' }} />
-                Library
+                Research Library
               </a>
               <a href="https://github.com/codegenius13" target="_blank" rel="noopener noreferrer">
                 <FaGithub size={20} style={{ verticalAlign: 'middle', marginRight: '6px' }} />

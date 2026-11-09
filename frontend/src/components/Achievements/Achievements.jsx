@@ -5,6 +5,7 @@ import "./Achievements.css";
 // PDF is best for certificates because it downloads and previews well
 import advancedReact from "../../assets/document/Advanced React.pdf";
 import algorithms from "../../assets/document/Algorithms for DNA Sequencing.pdf";
+import nsbmbCert from "../../assets/document/NSBMB Graduate Cert. 2846 2026.pdf";
 import bioinformaticsI from "../../assets/document/Bioinformatic Methods I.pdf";
 import bioinformaticsII from "../../assets/document/Bioinformatics Methods II.pdf";
 import genetic from "../../assets/document/DNA Genome and Genetic Disorders.pdf";
@@ -19,6 +20,17 @@ import jobbermanCertificate from "../../assets/document/Jobbermann Certificate.p
 const ACHIEVEMENTS = [
   {
     id: "ach-1",
+    title: "Graduate Member (NSBMB/26/02846)",
+    issuer: "NSBMB",
+    date: "November 2026",
+    type: "Certificate",
+    description:
+      "Graduate membership certificate",
+    fileUrl: nsbmbCert,
+    previewUrl: nsbmbCert,
+    fileType: "pdf",
+  },{
+    id: "ach-2",
     title: "Bioinformatics Methods II",
     issuer: "Coursera",
     date: "August 2026",
@@ -29,7 +41,7 @@ const ACHIEVEMENTS = [
     previewUrl: bioinformaticsII,
     fileType: "pdf",
   },{
-    id: "ach-2",
+    id: "ach-3",
     title: "Bioinformatics Methods I",
     issuer: "Coursera",
     date: "July 2026",
@@ -40,8 +52,8 @@ const ACHIEVEMENTS = [
     previewUrl: bioinformaticsI,
     fileType: "pdf",
   },{
-    id: "ach-3",
-    title: "Finding Hidden Messages in DNA (Bioinformatics Intro)",
+    id: "ach-4",
+    title: "Finding Hidden Messages in DNA (Bioinformatics Methods)",
     issuer: "Coursera",
     date: "July 2026",
     type: "Certificate",
@@ -51,7 +63,7 @@ const ACHIEVEMENTS = [
     previewUrl: hidingMessages,
     fileType: "pdf",
   },{
-    id: "ach-4",
+    id: "ach-5",
     title: "Experimental Methods in Systems Biology",
     issuer: "Coursera",
     date: "July 2026",
@@ -62,7 +74,7 @@ const ACHIEVEMENTS = [
     previewUrl: systemsBiology,
     fileType: "pdf",
   },{
-    id: "ach-5",
+    id: "ach-6",
     title: "Introduction to Systems Biology",
     issuer: "Coursera",
     date: "July 2026",
@@ -73,7 +85,7 @@ const ACHIEVEMENTS = [
     previewUrl: introSystems,
     fileType: "pdf",
   },{
-    id: "ach-6",
+    id: "ach-7",
     title: "Algorithms for DNA Sequencing",
     issuer: "Coursera",
     date: "July 2026",
@@ -84,7 +96,7 @@ const ACHIEVEMENTS = [
     previewUrl: algorithms,
     fileType: "pdf",
   },{
-    id: "ach-7",
+    id: "ach-8",
     title: "Python for Genomic Data Science",
     issuer: "Coursera",
     date: "July 2026",
@@ -95,7 +107,7 @@ const ACHIEVEMENTS = [
     previewUrl: python,
     fileType: "pdf",
   },{
-    id: "ach-8",
+    id: "ach-9",
     title: "Introduction to Genomic Technologies",
     issuer: "Coursera",
     date: "July 2026",
@@ -106,7 +118,7 @@ const ACHIEVEMENTS = [
     previewUrl: genomic,
     fileType: "pdf",
   },{
-    id: "ach-9",
+    id: "ach-10",
     title: "DNA, Genome and Genetic Disorders",
     issuer: "Coursera",
     date: "July 2026",
@@ -118,7 +130,7 @@ const ACHIEVEMENTS = [
     fileType: "pdf",
   },
   {
-    id: "ach-10",
+    id: "ach-11",
     title: "ICSAE-XII Conference Certificate",
     issuer: "Agroecotechnology Student Association, Faculty of Agriculture, Udayana University",
     date: "October 2025",
@@ -130,7 +142,7 @@ const ACHIEVEMENTS = [
     fileType: "pdf",
   },
   {
-    id: "ach-11",
+    id: "ach-12",
     title: "Meta Advanced React",
     issuer: "Coursera",
     date: "June 2026",
@@ -142,7 +154,7 @@ const ACHIEVEMENTS = [
     fileType: "pdf",
   },
   {
-    id: "ach-12",
+    id: "ach-13",
     title: "Jobberman Soft Skills Training",
     issuer: "Jobberman",
     date: "2023",
@@ -154,7 +166,7 @@ const ACHIEVEMENTS = [
     fileType: "pdf",
   },
   {
-    id: "ach-13",
+    id: "ach-14",
     title: "Introduction to Programming Using JavaScript",
     issuer: "Side Hustle",
     date: "2022",

@@ -127,22 +127,22 @@ const analyticsData = [
     coursesCompleted: 0,
     researchExercises: 0,
     bioinformaticsTasks: 0,
-    researchProjects: 0,
-    toolsExplored: 0,
-    githubCommits: 0,
-    portfolioVisits: 0,
-    linkedinGrowth: 0,
+    researchProjects: 1,
+    toolsExplored: 3,
+    githubCommits: 15,
+    portfolioVisits: 20,
+    linkedinGrowth: 100,
   },
   {
     month: "Nov",
-    coursesCompleted: 0,
-    researchExercises: 0,
-    bioinformaticsTasks: 0,
-    researchProjects: 0,
-    toolsExplored: 0,
-    githubCommits: 0,
-    portfolioVisits: 0,
-    linkedinGrowth: 0,
+    coursesCompleted: 1,
+    researchExercises: 1,
+    bioinformaticsTasks: 1,
+    researchProjects: 1,
+    toolsExplored: 2,
+    githubCommits: 4,
+    portfolioVisits: 3,
+    linkedinGrowth: 20,
   },
   {
     month: "Dec",
@@ -347,7 +347,7 @@ function Analytics() {
                 color: "var(--text-secondary)",
               }}
             >
-              Updated • September {CURRENT_YEAR}
+              Updated • November {CURRENT_YEAR}
             </p>
           </div>
 
